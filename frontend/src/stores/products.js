@@ -68,6 +68,17 @@ export const useProductsStore = defineStore('products', () => {
       await productsApi.createMovement(productId, data)
       toast.add({ severity: 'success', summary: 'Stock adjusted', life: 3000 })
       await fetchAll()
+      await fetchLowStock()
+      // Low stock warning
+      const product = products.value.find(p => p.id === productId)
+      if (product && product.quantity <= product.reorderLevel) {
+        toast.add({
+          severity: 'warn',
+          summary: 'Low Stock Alert',
+          detail: `${product.name} is low: ${product.quantity} ${product.unit} left (reorder at ${product.reorderLevel})`,
+          life: 6000
+        })
+      }
     } catch (err) {
       const msg = err.response?.data?.message || 'Failed to adjust stock'
       toast.add({ severity: 'error', summary: 'Error', detail: msg, life: 3000 })

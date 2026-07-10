@@ -6,7 +6,7 @@ using StockApp.Services;
 namespace StockApp.Controllers;
 
 [ApiController]
-[Route("api/products/{productId}/movements")]
+[Route("api/movements")]
 [Authorize]
 public class MovementsController : ControllerBase
 {
@@ -14,7 +14,12 @@ public class MovementsController : ControllerBase
 
     public MovementsController(StockService stockService) => _stockService = stockService;
 
-    [HttpPost]
+    [HttpGet]
+    public IActionResult GetAll([FromQuery] int? productId)
+        => Ok(_stockService.GetMovements(productId));
+
+    // Absolute route — POST /api/products/{productId}/movements
+    [HttpPost("/api/products/{productId:int}/movements")]
     public IActionResult Create(int productId, [FromBody] MovementRequest request)
     {
         try
