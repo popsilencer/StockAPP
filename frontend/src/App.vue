@@ -28,6 +28,10 @@
           <i class="pi pi-history"></i>
           <span>Movements</span>
         </router-link>
+        <router-link to="/withdraw" class="nav-item" active-class="active">
+          <i class="pi pi-shopping-cart"></i>
+          <span>Withdraw</span>
+        </router-link>
       </nav>
     </aside>
 
