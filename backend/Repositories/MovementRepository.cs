@@ -1,4 +1,3 @@
-using LiteDB;
 using StockApp.Data;
 using StockApp.Models.Entities;
 
@@ -12,10 +11,13 @@ public class MovementRepository
 
     public IEnumerable<StockMovement> GetAll(int? productId = null)
     {
+        var query = _ctx.Movements.Query();
         if (productId.HasValue)
-            return _ctx.Movements.Find(m => m.ProductId == productId.Value)
-                .OrderByDescending(m => m.CreatedAt);
-        return _ctx.Movements.FindAll().OrderByDescending(m => m.CreatedAt);
+            query = query.Where(m => m.ProductId == productId.Value);
+
+        return query.OrderBy(m => m.CreatedAt)
+            .ToList()
+            .OrderByDescending(m => m.CreatedAt);
     }
 
     public void Insert(StockMovement movement) => _ctx.Movements.Insert(movement);

@@ -10,7 +10,9 @@ public class UserRepository
     public UserRepository(LiteDbContext ctx) => _ctx = ctx;
 
     public User? GetByUsername(string username)
-        => _ctx.Users.FindOne(u => u.Username == username);
+        => _ctx.Users.Query()
+            .Where(u => u.Username == username)
+            .FirstOrDefault();
 
     public void Insert(User user) => _ctx.Users.Insert(user);
 }

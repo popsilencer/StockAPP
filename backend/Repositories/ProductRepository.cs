@@ -1,4 +1,3 @@
-using LiteDB;
 using StockApp.Data;
 using StockApp.Models.Entities;
 
@@ -15,13 +14,18 @@ public class ProductRepository
     public IEnumerable<Product> Search(string term)
     {
         var t = term.ToLower();
-        return _ctx.Products.Find(p =>
-            p.Sku.ToLower().Contains(t) || p.Name.ToLower().Contains(t));
+        return _ctx.Products.Query()
+            .Where(p => p.Sku.ToLower().Contains(t) || p.Name.ToLower().Contains(t))
+            .ToList();
     }
 
     public Product? GetById(int id) => _ctx.Products.FindById(id);
 
-    public void Insert(Product product) => _ctx.Products.Insert(product);
+    public Product Insert(Product product)
+    {
+        _ctx.Products.Insert(product);
+        return product;
+    }
 
     public bool Update(Product product) => _ctx.Products.Update(product);
 
@@ -29,10 +33,18 @@ public class ProductRepository
 
     public bool SkuExists(string sku, int? excludeId = null)
     {
-        var p = _ctx.Products.FindOne(p => p.Sku == sku);
-        return p != null && p.Id != excludeId;
+        var products = _ctx.Products.Query()
+            .Where(p => p.Sku == sku)
+            .ToList();
+
+        if (excludeId.HasValue)
+            return products.Any(p => p.Id != excludeId.Value);
+
+        return products.Any();
     }
 
     public IEnumerable<Product> GetLowStock()
-        => _ctx.Products.Find(p => p.Quantity <= p.ReorderLevel);
+        => _ctx.Products.Query()
+            .Where(p => p.Quantity <= p.ReorderLevel)
+            .ToList();
 }
