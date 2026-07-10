@@ -65,12 +65,10 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import { useProductsStore } from '../stores/products'
-import { useAuthStore } from '../stores/auth'
 import ProductFormDialog from './ProductFormDialog.vue'
 import StockAdjustDialog from './StockAdjustDialog.vue'
 
 const store = useProductsStore()
-const auth = useAuthStore()
 const search = ref('')
 const showLow = ref(false)
 const formVisible = ref(false)
@@ -149,14 +147,8 @@ async function handleDelete() {
   await store.fetchLowStock()
 }
 
-function logout() {
-  auth.logout()
-}
 </script>
 
 <style scoped>
-.products-page { padding: 1.5rem; }
-.page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem; }
-.actions { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; }
-.search-input { width: 200px; }
+.products-page { padding: 0; }
 </style>
