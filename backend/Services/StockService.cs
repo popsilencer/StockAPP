@@ -1,3 +1,4 @@
+using StockApp.Data;
 using StockApp.Models.Dtos;
 using StockApp.Models.Entities;
 using StockApp.Repositories;

@@ -3,7 +3,19 @@
     "allow": [
       "Bash(git init *)",
       "Bash(git add *)",
-      "Bash(git -c user.email=\"stock@local\" -c user.name=\"stock\" commit -q -m \"docs: add stock app design spec\")"
+      "Bash(git -c user.email=\"stock@local\" -c user.name=\"stock\" commit -q -m \"docs: add stock app design spec\")",
+      "mcp__plugin_context7_context7__query-docs",
+      "Bash(git -c user.email=\"stock@local\" -c user.name=\"stock\" commit -q -m \"docs: add implementation plan\")",
+      "Bash(dotnet restore *)",
+      "Bash(git -c user.email=\"stock@local\" -c user.name=\"stock\" commit -q -m \"feat: add LiteDbContext with collections and indexes\")",
+      "Bash(git -c user.email=\"stock@local\" -c user.name=\"stock\" commit -q -m \"feat: add repositories for Product, Movement, User\")",
+      "Bash(git -c user.email=\"stock@local\" -c user.name=\"stock\" commit -q -m \"feat: add auth service and login endpoint\")",
+      "Bash(git -c user.email=\"stock@local\" -c user.name=\"stock\" commit -q -m \"feat: add product service and CRUD endpoints\")",
+      "Bash(git -c user.email=\"stock@local\" -c user.name=\"stock\" commit -q -m \"feat: add stock service and movement endpoint\")",
+      "Bash(git -c user.email=\"stock@local\" -c user.name=\"stock\" commit -q -m \"feat: add middleware, Program.cs, appsettings, seed user\")",
+      "Bash(dotnet test *)",
+      "Bash(git -c user.email=\"stock@local\" -c user.name=\"stock\" commit -q -m \"test: add xUnit tests for ProductService, StockService, AuthService \\(12/12 passing\\)\")",
+      "Bash(npm install *)"
     ]
   }
 }
