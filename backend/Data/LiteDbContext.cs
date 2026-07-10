@@ -21,11 +21,14 @@ public class LiteDbContext : IDisposable
 
         _db.GetCollection<StockMovement>("movements", BsonAutoId.Int32);
         _db.GetCollection<User>("users", BsonAutoId.Int32);
+        _db.GetCollection<BsonDocument>("counters");
     }
 
+    public LiteDatabase Database => _db;
     public ILiteCollection<Product> Products => _db.GetCollection<Product>("products");
     public ILiteCollection<StockMovement> Movements => _db.GetCollection<StockMovement>("movements");
     public ILiteCollection<User> Users => _db.GetCollection<User>("users");
+    public ILiteCollection<BsonDocument> Counters => _db.GetCollection<BsonDocument>("counters");
 
     public void BeginTransaction() => _db.BeginTrans();
     public void CommitTransaction() => _db.Commit();
@@ -33,3 +36,4 @@ public class LiteDbContext : IDisposable
 
     public void Dispose() => _db.Dispose();
 }
+

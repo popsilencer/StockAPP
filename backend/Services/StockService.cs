@@ -1,3 +1,4 @@
+using LiteDB;
 using StockApp.Data;
 using StockApp.Models.Dtos;
 using StockApp.Models.Entities;
@@ -70,5 +71,65 @@ public class StockService
                 CreatedAt = m.CreatedAt
             };
         });
+    }
+
+    public string GetNextWithdrawNo()
+    {
+        var counter = _ctx.Counters.FindById("withdraw");
+        int next = counter == null ? 1 : counter["value"].AsInt32 + 1;
+        _ctx.Counters.Upsert(new BsonDocument { ["_id"] = "withdraw", ["value"] = next });
+        return $"WD-{DateTime.Now:yyyy-MM-dd}-{next:D4}";
+    }
+
+    public WithdrawResult BatchWithdraw(WithdrawRequest request)
+    {
+        if (request.Items == null || request.Items.Count == 0)
+            throw new InvalidOperationException("No items to withdraw");
+
+        var withdrawNo = GetNextWithdrawNo();
+
+        _ctx.BeginTransaction();
+        try
+        {
+            int processed = 0;
+            foreach (var item in request.Items)
+            {
+                var product = _productRepo.GetById(item.ProductId);
+                if (product == null)
+                    throw new KeyNotFoundException($"Product {item.ProductId} not found");
+
+                if (item.Quantity > product.Quantity)
+                    throw new InvalidOperationException(
+                        $"Cannot withdraw {item.Quantity} of {product.Name}. Only {product.Quantity} in stock.");
+
+                var movement = new StockMovement
+                {
+                    ProductId = item.ProductId,
+                    Type = MovementType.Out,
+                    Quantity = item.Quantity,
+                    Note = string.IsNullOrWhiteSpace(request.Note)
+                        ? withdrawNo
+                        : $"{withdrawNo} | {request.Note}"
+                };
+                _movementRepo.Insert(movement);
+
+                product.Quantity -= item.Quantity;
+                _productRepo.Update(product);
+                processed++;
+            }
+
+            _ctx.CommitTransaction();
+            return new WithdrawResult
+            {
+                WithdrawNo = withdrawNo,
+                Date = request.Date,
+                ProcessedCount = processed
+            };
+        }
+        catch
+        {
+            _ctx.RollbackTransaction();
+            throw;
+        }
     }
 }
