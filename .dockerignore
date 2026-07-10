@@ -1,0 +1,25 @@
+# .NET
+**/bin/
+**/obj/
+
+# Node
+frontend/node_modules/
+frontend/dist/
+
+# Git
+.git/
+.gitignore
+
+# IDE
+.vs/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docs
+docs/
+
+# Tests
+backend/Tests/

@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: stock-app
+    env: docker
+    dockerfilePath: Dockerfile
+    region: singapore
+    plan: starter
+    envVars:
+      - key: JWT_KEY
+        generateValue: true
+      - key: CORS_ORIGINS
+        sync: false
+      - key: LITEDB_PATH
+        value: /app/data/stock.db
+    disk:
+      name: stock-data
+      mountPath: /app/data
+      sizeGB: 1

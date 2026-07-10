@@ -18,7 +18,9 @@ builder.Services.AddControllers()
 builder.Services.AddEndpointsApiExplorer();
 
 // JWT
-var jwtKey = builder.Configuration["Jwt:Key"]!;
+var jwtKey = builder.Configuration["Jwt:Key"]
+    ?? Environment.GetEnvironmentVariable("JWT_KEY")
+    ?? throw new InvalidOperationException("JWT_KEY is not configured");
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -35,30 +37,46 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     });
 builder.Services.AddAuthorization();
 
-// CORS — allow Vue dev server
+// CORS — allow Vue dev server + Render
+var corsOrigins = new[] { "http://localhost:5173" }
+    .Concat(
+        Environment.GetEnvironmentVariable("CORS_ORIGINS")?
+            .Split(',', StringSplitOptions.RemoveEmptyEntries)
+        ?? []
+    )
+    .ToArray();
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
     {
-        policy.WithOrigins("http://localhost:5173")
+        policy.WithOrigins(corsOrigins)
               .AllowAnyMethod()
               .AllowAnyHeader();
     });
 });
 
-// LiteDB — singleton
-var dbPath = Path.Combine(AppContext.BaseDirectory, "stock.db");
+// LiteDB — singleton (path from env or default)
+var dbPath = Environment.GetEnvironmentVariable("LITEDB_PATH")
+    ?? Path.Combine(AppContext.BaseDirectory, "stock.db");
+var dbDir = Path.GetDirectoryName(dbPath);
+if (dbDir is not null && !Directory.Exists(dbDir))
+    Directory.CreateDirectory(dbDir);
 builder.Services.AddSingleton(new LiteDbContext(dbPath));
 
 // Repositories
 builder.Services.AddScoped<ProductRepository>();
 builder.Services.AddScoped<MovementRepository>();
 builder.Services.AddScoped<UserRepository>();
+builder.Services.AddScoped<WithdrawDetailRepository>();
+builder.Services.AddScoped<CompanyRepository>();
 
 // Services
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<ProductService>();
 builder.Services.AddScoped<StockService>();
+builder.Services.AddScoped<CompanyService>();
+builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<CompanyContext>();
 
 var app = builder.Build();
 
@@ -67,13 +85,19 @@ using (var scope = app.Services.CreateScope())
 {
     var ctx = scope.ServiceProvider.GetRequiredService<LiteDbContext>();
     var userRepo = scope.ServiceProvider.GetRequiredService<UserRepository>();
-    if (userRepo.GetByUsername("admin") == null)
+    var admin = userRepo.GetByUsername("admin");
+    if (admin == null)
     {
         userRepo.Insert(new User
         {
             Username = "admin",
             PasswordHash = BCrypt.Net.BCrypt.HashPassword("admin123")
         });
+    }
+    else
+    {
+        admin.PasswordHash = BCrypt.Net.BCrypt.HashPassword("admin123");
+        userRepo.Update(admin);
     }
 }
 
@@ -82,5 +106,12 @@ app.UseCors();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
+
+// Serve Vue frontend (static files)
+app.UseDefaultFiles();
+app.UseStaticFiles();
+
+// SPA fallback — return index.html for non-API routes
+app.MapFallbackToFile("index.html");
 
 app.Run();
