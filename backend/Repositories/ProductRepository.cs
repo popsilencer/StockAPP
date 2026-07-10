@@ -9,14 +9,23 @@ public class ProductRepository
 
     public ProductRepository(LiteDbContext ctx) => _ctx = ctx;
 
-    public IEnumerable<Product> GetAll() => _ctx.Products.FindAll();
+    public IEnumerable<Product> GetAll(int? companyId = null)
+    {
+        var query = _ctx.Products.Query();
+        if (companyId.HasValue)
+            query = query.Where(p => p.CompanyId == companyId.Value);
+        return query.ToList();
+    }
 
-    public IEnumerable<Product> Search(string term)
+    public IEnumerable<Product> Search(string term, int? companyId = null)
     {
         var t = term.ToLower();
-        return _ctx.Products.Query()
-            .Where(p => p.Sku.ToLower().Contains(t) || p.Name.ToLower().Contains(t))
-            .ToList();
+        var query = _ctx.Products.Query();
+        if (companyId.HasValue)
+            query = query.Where(p => p.CompanyId == companyId.Value);
+        return query
+            .ToList()
+            .Where(p => p.Sku.ToLower().Contains(t) || p.Name.ToLower().Contains(t));
     }
 
     public Product? GetById(int id) => _ctx.Products.FindById(id);
@@ -31,20 +40,24 @@ public class ProductRepository
 
     public bool Delete(int id) => _ctx.Products.Delete(id);
 
-    public bool SkuExists(string sku, int? excludeId = null)
+    public bool SkuExists(string sku, int? companyId = null, int? excludeId = null)
     {
-        var products = _ctx.Products.Query()
-            .Where(p => p.Sku == sku)
-            .ToList();
+        var query = _ctx.Products.Query().Where(p => p.Sku == sku);
+        if (companyId.HasValue)
+            query = query.Where(p => p.CompanyId == companyId.Value);
 
+        var products = query.ToList();
         if (excludeId.HasValue)
             return products.Any(p => p.Id != excludeId.Value);
 
         return products.Any();
     }
 
-    public IEnumerable<Product> GetLowStock()
-        => _ctx.Products.Query()
-            .Where(p => p.Quantity <= p.ReorderLevel)
-            .ToList();
+    public IEnumerable<Product> GetLowStock(int? companyId = null)
+    {
+        var query = _ctx.Products.Query();
+        if (companyId.HasValue)
+            query = query.Where(p => p.CompanyId == companyId.Value);
+        return query.Where(p => p.Quantity <= p.ReorderLevel).ToList();
+    }
 }

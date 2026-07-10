@@ -1,5 +1,5 @@
 <template>
-  <Toast position="top-right" />
+  <Toast position="top-center" />
   <div class="app-layout">
     <!-- Top Header -->
     <header class="top-header" v-if="auth.isLoggedIn">
@@ -10,6 +10,13 @@
         <h1>Popsilencer Stock APP</h1>
       </div>
       <div class="header-right">
+        <div class="user-info" @click="toggleMenu" aria-haspopup="true">
+          <i class="pi pi-user"></i>
+          <span class="user-name">{{ auth.username }}</span>
+          <Tag v-if="auth.isAdmin" value="admin" severity="info" class="admin-tag" />
+          <i class="pi pi-angle-down caret"></i>
+          <Menu ref="userMenu" :model="menuItems" :popup="true" />
+        </div>
         <button class="header-btn" @click="auth.logout" title="Logout">
           <i class="pi pi-sign-out"></i>
           <span>Logout</span>
@@ -17,9 +24,33 @@
       </div>
     </header>
 
+    <!-- Change Password Dialog -->
+    <Dialog v-model:visible="pwdVisible" modal header="Change Password" :style="{ width: '400px' }">
+      <div class="pwd-form">
+        <div class="field">
+          <label>Current Password</label>
+          <Password v-model="pwd.current" :feedback="false" toggleMask placeholder="Current password" class="w-full" />
+        </div>
+        <div class="field">
+          <label>New Password</label>
+          <Password v-model="pwd.new" toggleMask placeholder="Min 4 chars" class="w-full">
+            <template #header><h6>Pick a password</h6></template>
+          </Password>
+        </div>
+      </div>
+      <template #footer>
+        <Button label="Cancel" severity="secondary" outlined @click="pwdVisible = false" />
+        <Button label="Change" icon="pi pi-check" :loading="processing" @click="changePassword" />
+      </template>
+    </Dialog>
+
     <!-- Sidebar -->
     <aside class="sidebar" v-if="auth.isLoggedIn" :class="{ collapsed: sidebarCollapsed }">
       <nav class="sidebar-nav">
+        <router-link to="/withdraw" class="nav-item" active-class="active">
+          <i class="pi pi-shopping-cart"></i>
+          <span>Withdraw</span>
+        </router-link>
         <router-link to="/products" class="nav-item" active-class="active">
           <i class="pi pi-box"></i>
           <span>Products</span>
@@ -28,9 +59,13 @@
           <i class="pi pi-history"></i>
           <span>Movements</span>
         </router-link>
-        <router-link to="/withdraw" class="nav-item" active-class="active">
-          <i class="pi pi-shopping-cart"></i>
-          <span>Withdraw</span>
+        <router-link v-if="auth.isAdmin" to="/companies" class="nav-item" active-class="active">
+          <i class="pi pi-building"></i>
+          <span>Company</span>
+        </router-link>
+        <router-link v-if="auth.isAdmin" to="/users" class="nav-item" active-class="active">
+          <i class="pi pi-users"></i>
+          <span>User</span>
         </router-link>
       </nav>
     </aside>
@@ -45,9 +80,51 @@
 <script setup>
 import { ref } from 'vue'
 import { useAuthStore } from './stores/auth'
+import { authApi } from './api/auth'
+import { useToast } from 'primevue/usetoast'
 
 const auth = useAuthStore()
+const toast = useToast()
 const sidebarCollapsed = ref(false)
+const userMenu = ref(null)
+const pwdVisible = ref(false)
+const processing = ref(false)
+const pwd = ref({ current: '', new: '' })
+
+const menuItems = [
+  { label: 'Change Password', icon: 'pi pi-key', command: () => openChangePassword() }
+]
+
+function toggleMenu(event) {
+  userMenu.value.toggle(event)
+}
+
+function openChangePassword() {
+  pwd.value = { current: '', new: '' }
+  pwdVisible.value = true
+}
+
+async function changePassword() {
+  if (!pwd.value.current || !pwd.value.new) {
+    toast.add({ severity: 'warn', summary: 'Required', detail: 'Please fill all fields', life: 3000 })
+    return
+  }
+  if (pwd.value.new.length < 4) {
+    toast.add({ severity: 'warn', summary: 'Too short', detail: 'New password must be at least 4 chars', life: 3000 })
+    return
+  }
+  processing.value = true
+  try {
+    await authApi.changePassword(pwd.value.current, pwd.value.new)
+    toast.add({ severity: 'success', summary: 'Password changed', life: 3000 })
+    pwdVisible.value = false
+  } catch (err) {
+    const msg = err.response?.data?.message || 'Change failed'
+    toast.add({ severity: 'error', summary: 'Error', detail: msg, life: 4000 })
+  } finally {
+    processing.value = false
+  }
+}
 </script>
 
 <style>
@@ -175,7 +252,37 @@ body {
 .header-right {
   display: flex;
   align-items: center;
+  gap: 1rem;
 }
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.85rem;
+  background: var(--pink-50);
+  border-radius: 10px;
+  color: var(--pink-700);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.user-info:hover {
+  background: var(--pink-100);
+}
+
+.caret { font-size: 0.8rem; color: var(--pink-400); }
+
+.pwd-form { display: flex; flex-direction: column; gap: 1rem; }
+.pwd-form .field { display: flex; flex-direction: column; }
+.pwd-form .field label { display: block; margin-bottom: 0.4rem; font-weight: 600; font-size: 0.85rem; color: var(--gray-600); }
+.pwd-form .w-full { width: 100%; }
+
+.user-info i { font-size: 0.95rem; color: var(--pink-500); }
+.user-name { color: var(--gray-700); }
+.admin-tag { font-size: 0.7rem !important; }
 
 .header-btn {
   display: flex;

@@ -1,0 +1,166 @@
+- generic [ref=f16e1]:
+  - generic [ref=f16e2]:
+    - generic [ref=f16e3]:
+      - banner [ref=f16e4]:
+        - generic [ref=f16e5]:
+          - link [ref=f16e7] [cursor=pointer]:
+            - /url: /
+            - img "Render" [ref=f16e8]
+          - button "M My Workspace" [ref=f16e12] [cursor=pointer]:
+            - generic [ref=f16e13]:
+              - generic [ref=f16e14]: M
+              - generic "My Workspace" [ref=f16e15]
+        - generic [ref=f16e20]:
+          - navigation [ref=f16e21]:
+            - list [ref=f16e22]:
+              - listitem [ref=f16e23]:
+                - generic [ref=f16e24]: Projects
+          - button "Search Ctrl + K" [ref=f16e31] [cursor=pointer]:
+            - text: Search
+            - generic [ref=f16e35]:
+              - generic [ref=f16e38]: Ctrl
+              - generic [ref=f16e39]: +
+              - generic [ref=f16e40]: K
+              - generic [ref=f16e41]: K
+        - generic [ref=f16e42]:
+          - button "New" [ref=f16e44] [cursor=pointer]
+          - button "Upgrade" [ref=f16e50] [cursor=pointer]
+          - button [ref=f16e56] [cursor=pointer]:
+            - img "Help" [ref=f16e57]
+          - button "p" [ref=f16e62] [cursor=pointer]
+      - generic [ref=f16e65]:
+        - navigation [ref=f16e66]:
+          - separator [ref=f16e67]
+          - generic [ref=f16e69]:
+            - list [ref=f16e70]:
+              - listitem [ref=f16e71]:
+                - link "Projects" [ref=f16e72] [cursor=pointer]:
+                  - /url: /
+              - listitem [ref=f16e78]:
+                - link "Blueprints" [ref=f16e79] [cursor=pointer]:
+                  - /url: /blueprints
+              - listitem [ref=f16e86]:
+                - link "Environment Groups" [ref=f16e87] [cursor=pointer]:
+                  - /url: /env-groups
+            - generic [ref=f16e95]:
+              - generic [ref=f16e96]: Integrations
+              - list "Integrations" [ref=f16e97]:
+                - listitem [ref=f16e98]:
+                  - link "Observability" [ref=f16e99] [cursor=pointer]:
+                    - /url: /observability
+                - listitem [ref=f16e103]:
+                  - link "Webhooks" [ref=f16e104] [cursor=pointer]:
+                    - /url: /webhooks
+                - listitem [ref=f16e110]:
+                  - link "Notifications" [ref=f16e111] [cursor=pointer]:
+                    - /url: /notifications
+            - generic [ref=f16e123]:
+              - generic [ref=f16e124]: Networking
+              - list "Networking" [ref=f16e125]:
+                - listitem [ref=f16e126]:
+                  - link "Private Links" [ref=f16e127] [cursor=pointer]:
+                    - /url: /private-links
+                - listitem [ref=f16e131]:
+                  - link "Dedicated IPs New" [ref=f16e132] [cursor=pointer]:
+                    - /url: /dedicated-ips
+                    - generic [ref=f16e135]:
+                      - generic [ref=f16e136]: Dedicated IPs
+                      - generic [ref=f16e137]: New
+            - generic [ref=f16e138]:
+              - generic [ref=f16e139]: Workspace
+              - list "Workspace" [ref=f16e140]:
+                - listitem [ref=f16e141]:
+                  - link "Billing" [ref=f16e142] [cursor=pointer]:
+                    - /url: /w/tea-d98idfi8qa3s73fil8pg/billing
+                - listitem [ref=f16e147]:
+                  - link "Settings" [ref=f16e148] [cursor=pointer]:
+                    - /url: /w/tea-d98idfi8qa3s73fil8pg/settings
+          - generic [ref=f16e154]:
+            - button "Collapse items" [expanded] [ref=f16e155] [cursor=pointer]
+            - list "Footer navigation" [ref=f16e158]:
+              - listitem [ref=f16e159]:
+                - link "Changelog" [ref=f16e160] [cursor=pointer]:
+                  - /url: https://render.com/changelog
+              - listitem [ref=f16e167]:
+                - link "Invite a friend" [ref=f16e168] [cursor=pointer]:
+                  - /url: /invites
+              - listitem [ref=f16e172]:
+                - button "Contact support" [ref=f16e173] [cursor=pointer]
+            - link "Render Status" [ref=f16e180] [cursor=pointer]:
+              - /url: https://status.render.com
+        - main [ref=f16e185]:
+          - generic [ref=f16e186]:
+            - heading "Overview" [level=1] [ref=f16e188]
+            - generic [ref=f16e190]:
+              - button [disabled] [ref=f16e195]
+              - button "New" [expanded] [active] [ref=f16e202] [cursor=pointer]
+          - generic [ref=f16e211]:
+            - generic [ref=f16e212]:
+              - generic [ref=f16e213]: You haven't created any services yet.
+              - generic [ref=f16e214]: Deploy in just a few minutes. Spin up web services, static sites, cron jobs, and more.
+            - generic [ref=f16e215]:
+              - generic [ref=f16e221]:
+                - link [ref=f16e222] [cursor=pointer]:
+                  - /url: /web/new
+                - paragraph [ref=f16e226]: Dynamic web app. Ideal for full-stack apps, API servers, and mobile backends.
+              - generic [ref=f16e233]:
+                - link [ref=f16e234] [cursor=pointer]:
+                  - /url: /static/new
+                - paragraph [ref=f16e238]: Static content served over a global CDN. Ideal for frontend, blogs, and content sites.
+              - generic [ref=f16e244]:
+                - link [ref=f16e245] [cursor=pointer]:
+                  - /url: /new/database
+                - paragraph [ref=f16e249]: Relational data storage. Supports point-in-time recovery, read replicas, and high availability.
+              - link [ref=f16e259] [cursor=pointer]:
+                - /url: /new
+    - generic:
+      - generic:
+        - generic: "0 services selected:"
+        - generic:
+          - generic:
+            - button:
+              - generic: Move
+      - generic:
+        - separator
+        - generic:
+          - generic:
+            - button
+  - iframe [ref=f16e263]:
+    
+  - listbox "New" [ref=f16e267]:
+    - list [ref=f16e269]:
+      - option [ref=f16e270]:
+        - link "Static Site" [ref=f16e271] [cursor=pointer]:
+          - /url: /static/new
+      - option [ref=f16e277]:
+        - link "Web Service" [ref=f16e278] [cursor=pointer]:
+          - /url: /web/new
+      - option [ref=f16e283]:
+        - link "Private Service" [ref=f16e284] [cursor=pointer]:
+          - /url: /pserv/new
+      - option [ref=f16e289]:
+        - link "Workflow Beta" [ref=f16e290] [cursor=pointer]:
+          - /url: /workflow/new
+          - generic [ref=f16e291]:
+            - generic [ref=f16e297]: Workflow
+            - generic [ref=f16e298]: Beta
+      - option [ref=f16e299]:
+        - link "Background Worker" [ref=f16e300] [cursor=pointer]:
+          - /url: /worker/new
+      - option [ref=f16e308]:
+        - link "Cron Job" [ref=f16e309] [cursor=pointer]:
+          - /url: /cron/new
+        - separator [ref=f16e316]
+      - option [ref=f16e318]:
+        - link "Postgres" [ref=f16e319] [cursor=pointer]:
+          - /url: /new/database
+      - option [ref=f16e324]:
+        - link "Key Value" [ref=f16e325] [cursor=pointer]:
+          - /url: /new/redis
+        - separator [ref=f16e332]
+      - option [ref=f16e334]:
+        - link "Project" [ref=f16e335] [cursor=pointer]:
+          - /url: /new/project
+      - option [ref=f16e342]:
+        - link "Blueprint" [ref=f16e343] [cursor=pointer]:
+          - /url: /select-repo?type=blueprint

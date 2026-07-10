@@ -27,6 +27,19 @@ public class AuthService
         return GenerateToken(user);
     }
 
+    public void ChangePassword(int userId, string currentPassword, string newPassword)
+    {
+        var user = _userRepo.GetById(userId);
+        if (user == null)
+            throw new KeyNotFoundException("User not found");
+
+        if (!BCrypt.Net.BCrypt.Verify(currentPassword, user.PasswordHash))
+            throw new InvalidOperationException("Current password is incorrect");
+
+        user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(newPassword);
+        _userRepo.Update(user);
+    }
+
     private string GenerateToken(User user)
     {
         var key = new SymmetricSecurityKey(

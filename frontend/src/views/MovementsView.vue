@@ -5,7 +5,10 @@
         <InputText v-model="search" placeholder="Search SKU or product name..." class="search-input" />
       </div>
     </div>
-    <DataTable :value="filteredMovements" tableStyle="min-width: 100%">
+    <DataTable :value="filteredMovements" tableStyle="min-width: 100%"
+               paginator :rows="10" :rowsPerPageOptions="[10, 20, 50, 100]"
+               currentPageReportTemplate="Showing {first} to {last} of {totalRecords}"
+               paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown">
       <Column field="sku" header="SKU" style="width: 140px"></Column>
       <Column field="productName" header="Product"></Column>
       <Column field="type" header="Type" style="width: 110px">

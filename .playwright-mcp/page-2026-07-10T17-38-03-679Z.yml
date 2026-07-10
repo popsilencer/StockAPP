@@ -1,0 +1,214 @@
+- generic [ref=f16e1]:
+  - generic [ref=f16e2]:
+    - generic [ref=f16e3]:
+      - banner [ref=f16e4]:
+        - generic [ref=f16e5]:
+          - generic [ref=f16e6]:
+            - button [ref=f16e351] [cursor=pointer]:
+              - img "Open menu" [ref=f16e352]
+            - link [ref=f16e7] [cursor=pointer]:
+              - /url: /
+              - img "Render" [ref=f16e8]
+          - button "M My Workspace" [ref=f16e12] [cursor=pointer]:
+            - generic [ref=f16e13]:
+              - generic [ref=f16e14]: M
+              - generic "My Workspace" [ref=f16e15]
+        - generic [ref=f16e42]:
+          - button [ref=f16e357] [cursor=pointer]:
+            - img "Open search" [ref=f16e358]
+          - button "p" [ref=f16e62] [cursor=pointer]
+      - navigation "Breadcrumbs" [ref=f16e360]:
+        - navigation [ref=f16e361]:
+          - list [ref=f16e362]:
+            - listitem [ref=f16e363]:
+              - button "New Web Service" [ref=f16e366] [cursor=pointer]
+      - generic [ref=f16e374]:
+        - main [ref=f16e375]:
+          - generic [ref=f16e376]:
+            - heading "New Web Service" [level=1] [ref=f16e378]
+            - generic [ref=f16e379]: It looks like you're using Docker, so we've autofilled some fields accordingly.
+          - generic [ref=f16e380]:
+            - generic [ref=f16e381]: Source Code
+            - generic [ref=f16e385]:
+              - img "GitHub" [ref=f16e387]
+              - link "popsilencer / StockAPP" [ref=f16e389] [cursor=pointer]:
+                - /url: https://github.com/popsilencer/StockAPP
+                - text: popsilencer
+                - generic [ref=f16e390]: /
+                - text: StockAPP
+        - main [ref=f16e392]:
+          - generic:
+            - generic:
+              - heading [level=1]
+          - generic [ref=f16e393]:
+            - generic [ref=f16e394]:
+              - generic [ref=f16e395]:
+                - generic [ref=f16e396]: Name
+                - generic [ref=f16e398]: A unique name for your web service.
+              - textbox "Name" [ref=f16e403]:
+                - /placeholder: example-service-name
+                - text: StockAPP
+            - generic [ref=f16e404]:
+              - generic [ref=f16e405]:
+                - generic [ref=f16e406]: Language
+                - generic [ref=f16e408]:
+                  - text: Choose the
+                  - link "runtime environment" [ref=f16e409] [cursor=pointer]:
+                    - /url: https://render.com/docs/language-support
+                  - text: for this service.
+              - button "Language" [ref=f16e413] [cursor=pointer]:
+                - generic [ref=f16e414]: Docker
+            - generic [ref=f16e418]:
+              - generic [ref=f16e419]:
+                - generic [ref=f16e420]: Branch
+                - generic [ref=f16e422]: The Git branch to build and deploy.
+              - combobox [ref=f16e424]:
+                - generic [ref=f16e427]:
+                  - textbox "Branch" [ref=f16e428]:
+                    - /placeholder: Search
+                    - text: main
+                  - button "Clear search input" [ref=f16e429] [cursor=pointer]
+            - generic [ref=f16e432]:
+              - generic [ref=f16e433]:
+                - generic [ref=f16e434]: Region
+                - generic [ref=f16e436]:
+                  - text: Your services in the same
+                  - link "region" [ref=f16e437] [cursor=pointer]:
+                    - /url: https://render.com/docs/regions
+                  - text: can communicate over a
+                  - link "private network." [ref=f16e438] [cursor=pointer]:
+                    - /url: https://render.com/docs/private-network
+              - generic [ref=f16e441]:
+                - generic [ref=f16e442]: Region Selector
+                - button "Region Selector Virginia (US East)" [expanded] [active] [ref=f16e444] [cursor=pointer]:
+                  - generic [ref=f16e445]: Virginia (US East)
+            - generic [ref=f16e451]:
+              - generic [ref=f16e452]:
+                - generic [ref=f16e453]: Root DirectoryOptional
+                - generic [ref=f16e455]:
+                  - text: If set, Render runs commands from this directory instead of the repository root. Additionally, code changes outside of this directory do not trigger an auto-deploy. Most commonly used with a
+                  - link "monorepo." [ref=f16e456] [cursor=pointer]:
+                    - /url: https://render.com/docs/monorepo-support#setting-a-root-directory
+              - textbox "Root DirectoryOptional" [ref=f16e461]:
+                - /placeholder: e.g. src
+            - generic [ref=f16e463]:
+              - generic [ref=f16e464]: Instance Type
+              - radiogroup "Instance type" [ref=f16e466]:
+                - generic [ref=f16e468]:
+                  - generic [ref=f16e469]: For hobby projects
+                  - radio [ref=f16e473]:
+                    - button "Free $0/ month 512 MB (RAM) 0.1 CPU" [ref=f16e474] [cursor=pointer]:
+                      - generic [ref=f16e475]:
+                        - generic [ref=f16e476]: Free
+                        - generic [ref=f16e477]: $0/ month
+                      - list [ref=f16e478]:
+                        - listitem [ref=f16e479]: 512 MB (RAM)
+                        - listitem [ref=f16e480]: 0.1 CPU
+                - generic [ref=f16e481]:
+                  - generic [ref=f16e482]:
+                    - generic [ref=f16e483]: For professional use
+                    - generic [ref=f16e484]: "For more power and to get the most out of Render, we recommend using one of our paid instance types. All paid instances support:"
+                    - list [ref=f16e485]:
+                      - listitem [ref=f16e486]: Zero Downtime
+                      - listitem [ref=f16e487]: SSH Access
+                      - listitem [ref=f16e488]: Scaling
+                      - listitem [ref=f16e489]: One-off jobs
+                      - listitem [ref=f16e490]: Support for persistent disks
+                  - generic [ref=f16e491]:
+                    - generic [ref=f16e492]:
+                      - radio [checked] [ref=f16e493]:
+                        - button "Starter $7/ month 512 MB (RAM) 0.5 CPU" [ref=f16e494] [cursor=pointer]:
+                          - generic [ref=f16e495]:
+                            - generic [ref=f16e496]: Starter
+                            - generic [ref=f16e497]: $7/ month
+                          - list [ref=f16e498]:
+                            - listitem [ref=f16e499]: 512 MB (RAM)
+                            - listitem [ref=f16e500]: 0.5 CPU
+                      - radio [ref=f16e501]:
+                        - button "Standard $25/ month 2 GB (RAM) 1 CPU" [ref=f16e502] [cursor=pointer]:
+                          - generic [ref=f16e503]:
+                            - generic [ref=f16e504]: Standard
+                            - generic [ref=f16e505]: $25/ month
+                          - list [ref=f16e506]:
+                            - listitem [ref=f16e507]: 2 GB (RAM)
+                            - listitem [ref=f16e508]: 1 CPU
+                      - radio [ref=f16e509]:
+                        - button "Pro $85/ month 4 GB (RAM) 2 CPU" [ref=f16e510] [cursor=pointer]:
+                          - generic [ref=f16e511]:
+                            - generic [ref=f16e512]: Pro
+                            - generic [ref=f16e513]: $85/ month
+                          - list [ref=f16e514]:
+                            - listitem [ref=f16e515]: 4 GB (RAM)
+                            - listitem [ref=f16e516]: 2 CPU
+                      - radio [ref=f16e517]:
+                        - button "Pro Plus $175/ month 8 GB (RAM) 4 CPU" [ref=f16e518] [cursor=pointer]:
+                          - generic [ref=f16e519]:
+                            - generic [ref=f16e520]: Pro Plus
+                            - generic [ref=f16e521]: $175/ month
+                          - list [ref=f16e522]:
+                            - listitem [ref=f16e523]: 8 GB (RAM)
+                            - listitem [ref=f16e524]: 4 CPU
+                      - radio [ref=f16e525]:
+                        - button "Pro Max $225/ month 16 GB (RAM) 4 CPU" [ref=f16e526] [cursor=pointer]:
+                          - generic [ref=f16e527]:
+                            - generic [ref=f16e528]: Pro Max
+                            - generic [ref=f16e529]: $225/ month
+                          - list [ref=f16e530]:
+                            - listitem [ref=f16e531]: 16 GB (RAM)
+                            - listitem [ref=f16e532]: 4 CPU
+                      - radio [ref=f16e533]:
+                        - button "Pro Ultra $450/ month 32 GB (RAM) 8 CPU" [ref=f16e534] [cursor=pointer]:
+                          - generic [ref=f16e535]:
+                            - generic [ref=f16e536]: Pro Ultra
+                            - generic [ref=f16e537]: $450/ month
+                          - list [ref=f16e538]:
+                            - listitem [ref=f16e539]: 32 GB (RAM)
+                            - listitem [ref=f16e540]: 8 CPU
+                    - paragraph [ref=f16e541]:
+                      - text: Need a
+                      - link "custom instance type" [ref=f16e542] [cursor=pointer]:
+                        - /url: mailto:sales@render.com
+                      - text: "? We support up to 512 GB RAM and 64 CPUs."
+            - generic [ref=f16e544]:
+              - generic [ref=f16e547]:
+                - heading "Environment Variables" [level=4] [ref=f16e549]
+                - generic [ref=f16e550]:
+                  - text: Set environment-specific config and secrets (such as API keys), then read those values from your code.
+                  - link "Learn more." [ref=f16e551] [cursor=pointer]:
+                    - /url: https://render.com/docs/configure-environment-variables
+              - generic [ref=f16e553]:
+                - generic [ref=f16e554]:
+                  - textbox "NAME_OF_VARIABLE" [ref=f16e558]
+                  - generic [ref=f16e559]:
+                    - generic [ref=f16e561]:
+                      - textbox "value" [ref=f16e565]
+                      - button [ref=f16e566] [cursor=pointer]
+                    - button [ref=f16e574] [cursor=pointer]
+                - generic [ref=f16e580]:
+                  - button [ref=f16e581] [cursor=pointer]
+                  - button [ref=f16e585] [cursor=pointer]
+            - list [ref=f16e591]:
+              - listitem [ref=f16e592]:
+                - button "Advanced" [ref=f16e594] [cursor=pointer]
+            - button "Deploy web service" [ref=f16e599] [cursor=pointer]
+    - generic:
+      - generic:
+        - generic: "0 services selected:"
+        - generic:
+          - generic:
+            - button:
+              - generic: Move
+      - generic:
+        - separator
+        - generic:
+          - generic:
+            - button
+  - iframe [ref=f16e263]:
+    
+  - listbox "Region Selector" [ref=f16e601]:
+    - generic [ref=f16e602]:
+      - option "Virginia (US East)" [selected] [ref=f16e603]
+      - option "Oregon (US West)" [ref=f16e612]
+      - option "Frankfurt (EU Central)" [ref=f16e619]
+      - option "Ohio (US East)" [ref=f16e626]
+      - option "Singapore (Southeast Asia)" [ref=f16e633]

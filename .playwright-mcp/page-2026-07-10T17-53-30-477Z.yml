@@ -1,0 +1,154 @@
+- generic [ref=f77e3]:
+  - banner [ref=f77e4]:
+    - generic [ref=f77e5]:
+      - link [ref=f77e7] [cursor=pointer]:
+        - /url: /dashboard/popsilencer-gmail-com
+      - navigation [ref=f77e8]:
+        - link "Resource usage settings" [ref=f77e10] [cursor=pointer]:
+          - /url: /dashboard/popsilencer-gmail-com/settings
+        - link [ref=f77e16] [cursor=pointer]:
+          - /url: /dashboard
+        - link [ref=f77e18] [cursor=pointer]:
+          - /url: https://community.fly.io/c/fresh-produce/27?order=created
+        - generic [ref=f77e20] [cursor=pointer]:
+          - term [ref=f77e22]: Resources
+          - definition [ref=f77e24]:
+            - link [ref=f77e25]:
+              - /url: https://fly.io/docs/
+            - link [ref=f77e27]:
+              - /url: https://community.fly.io
+            - link [ref=f77e29]:
+              - /url: https://fly.io/blog/
+            - link [ref=f77e31]:
+              - /url: https://fly.io/sprites-blog/
+            - link [ref=f77e33]:
+              - /url: https://fly.io/toolbox-turnout/
+            - link [ref=f77e35]:
+              - /url: https://fly.io/phoenix-files/
+            - link [ref=f77e37]:
+              - /url: https://fly.io/laravel-bytes/
+            - link [ref=f77e39]:
+              - /url: https://fly.io/ruby-dispatch/
+            - link [ref=f77e41]:
+              - /url: https://fly.io/django-beats/
+            - link [ref=f77e43]:
+              - /url: https://fly.io/javascript-journal/
+        - generic [ref=f77e45] [cursor=pointer]:
+          - term [ref=f77e47]: Account
+          - definition [ref=f77e49]:
+            - generic [ref=f77e50]:
+              - generic [ref=f77e51]: Signed in as
+              - generic [ref=f77e52]: popsilencer@gmail.com
+            - separator [ref=f77e53]
+            - link [ref=f77e54]:
+              - /url: /user/settings
+            - link [ref=f77e56]:
+              - /url: /organizations
+            - link [ref=f77e58]:
+              - /url: /tokens
+            - link [ref=f77e60]:
+              - /url: /app/sign-out
+  - generic [ref=f77e63]:
+    - generic [ref=f77e64]:
+      - generic [ref=f77e65]:
+        - generic [ref=f77e66]: Organization
+        - button "Personal ⌘ K" [ref=f77e67] [cursor=pointer]:
+          - generic [ref=f77e68]: Personal
+          - generic:
+            - generic:
+              - generic: ⌘
+              - text: K
+      - button "Launch an App" [ref=f77e70] [cursor=pointer]
+      - navigation [ref=f77e71]:
+        - link "Apps" [ref=f77e72] [cursor=pointer]:
+          - /url: /dashboard/popsilencer-gmail-com
+        - link "Team" [ref=f77e75] [cursor=pointer]:
+          - /url: /dashboard/popsilencer-gmail-com/team
+        - separator [ref=f77e78]
+        - link "Activity" [ref=f77e79] [cursor=pointer]:
+          - /url: /dashboard/popsilencer-gmail-com/activity
+        - link "Grafana" [ref=f77e82] [cursor=pointer]:
+          - /url: https://fly-metrics.net/d/fly-app/fly-app?orgId=1774435
+        - separator [ref=f77e85]
+        - link "Managed Postgres" [ref=f77e86] [cursor=pointer]:
+          - /url: /dashboard/popsilencer-gmail-com/managed_postgres
+        - link "Phoenix.new Logo phoenix.new" [ref=f77e89] [cursor=pointer]:
+          - /url: /dashboard/popsilencer-gmail-com/flynet
+          - generic [ref=f77e90]:
+            - img "Phoenix.new Logo"
+          - generic [ref=f77e91]: phoenix.new
+        - link "Upstash Redis" [ref=f77e92] [cursor=pointer]:
+          - /url: /dashboard/popsilencer-gmail-com/redis
+        - link "Tigris Object Storage" [ref=f77e95] [cursor=pointer]:
+          - /url: /dashboard/popsilencer-gmail-com/tigris
+        - link "Legacy Postgres Legacy Postgres clusters are unmanaged and require manual configuration" [ref=f77e98] [cursor=pointer]:
+          - /url: /dashboard/popsilencer-gmail-com/postgres
+          - generic [ref=f77e100]: Legacy Postgres
+          - generic [ref=f77e101]: Legacy Postgres clusters are unmanaged and require manual configuration
+        - separator [ref=f77e103]
+        - link "Status" [ref=f77e104] [cursor=pointer]:
+          - /url: /dashboard/popsilencer-gmail-com/status
+        - link "Support FREE TRIAL" [ref=f77e107] [cursor=pointer]:
+          - /url: /dashboard/popsilencer-gmail-com/support
+          - generic [ref=f77e109]: Support
+          - generic [ref=f77e110]: FREE TRIAL
+        - link "Compliance" [ref=f77e111] [cursor=pointer]:
+          - /url: /dashboard/popsilencer-gmail-com/compliance
+        - link "Tokens" [ref=f77e114] [cursor=pointer]:
+          - /url: /dashboard/popsilencer-gmail-com/tokens
+        - separator [ref=f77e117]
+        - link "Usage" [ref=f77e118] [cursor=pointer]:
+          - /url: /dashboard/popsilencer-gmail-com/usage
+        - link "Billing" [ref=f77e121] [cursor=pointer]:
+          - /url: /dashboard/popsilencer-gmail-com/billing
+        - link "Settings" [ref=f77e124] [cursor=pointer]:
+          - /url: /dashboard/popsilencer-gmail-com/settings
+    - generic [ref=f77e127]:
+      - main [ref=f77e128]:
+        - generic [ref=f77e131]:
+          - heading "Apps" [level=1] [ref=f77e133]
+          - generic [ref=f77e134]:
+            - generic [ref=f77e135]:
+              - generic [ref=f77e136]: Search
+              - generic [ref=f77e137]:
+                - textbox "Search apps..." [ref=f77e138]
+                - generic: /
+            - generic [ref=f77e141]:
+              - generic [ref=f77e142] [cursor=pointer]:
+                - checkbox [checked]
+                - generic [ref=f77e143]: Deployed
+              - generic [ref=f77e148] [cursor=pointer]:
+                - checkbox [checked]
+                - generic [ref=f77e149]: Pending
+              - generic [ref=f77e154] [cursor=pointer]:
+                - checkbox [checked]
+                - generic [ref=f77e155]: Suspended
+        - list [ref=f77e160]:
+          - listitem [ref=f77e161]: Loading...
+          - listitem [ref=f77e162]:
+            - heading [level=2] [ref=f77e168]
+          - listitem [ref=f77e172]:
+            - heading [level=2] [ref=f77e178]
+          - listitem [ref=f77e182]:
+            - heading [level=2] [ref=f77e188]
+          - listitem [ref=f77e192]:
+            - heading [level=2] [ref=f77e198]
+          - listitem [ref=f77e202]:
+            - heading [level=2] [ref=f77e208]
+          - listitem [ref=f77e212]:
+            - heading [level=2] [ref=f77e218]
+          - listitem [ref=f77e222]:
+            - heading [level=2] [ref=f77e228]
+          - listitem [ref=f77e232]:
+            - heading [level=2] [ref=f77e238]
+          - listitem [ref=f77e242]:
+            - heading [level=2] [ref=f77e248]
+          - listitem [ref=f77e252]:
+            - heading [level=2] [ref=f77e258]
+      - complementary [ref=f77e262]:
+        - heading "Recent Activity" [level=3] [ref=f77e267]
+  - alert
+  - alert
+  - alert
+  - alert
+  - alert

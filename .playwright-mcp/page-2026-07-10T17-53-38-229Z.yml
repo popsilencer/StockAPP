@@ -1,0 +1,181 @@
+- generic [ref=f77e3]:
+  - banner [ref=f77e4]:
+    - generic [ref=f77e5]:
+      - link [ref=f77e7] [cursor=pointer]:
+        - /url: /dashboard/popsilencer-gmail-com
+      - navigation [ref=f77e8]:
+        - generic [ref=f77e9]:
+          - link "Resource usage settings" [ref=f77e10] [cursor=pointer]:
+            - /url: /dashboard/popsilencer-gmail-com/settings
+          - generic [ref=f77e280]:
+            - generic:
+              - term
+              - definition [ref=f77e282]:
+                - generic [ref=f77e283]:
+                  - heading "Resource Usage" [level=3] [ref=f77e284]
+                  - generic [ref=f77e286]:
+                    - generic [ref=f77e287]:
+                      - text: Machines
+                      - generic [ref=f77e288]:
+                        - generic:
+                          - text: The Machines limit is a fail-safe to prevent runaway creation of machines. If you need this limit increased, please email us at
+                          - link "billing@fly.io":
+                            - /url: mailto:billing@fly.io
+                    - generic [ref=f77e289]: 0/100
+        - link [ref=f77e16] [cursor=pointer]:
+          - /url: /dashboard
+        - link [ref=f77e18] [cursor=pointer]:
+          - /url: https://community.fly.io/c/fresh-produce/27?order=created
+        - generic [ref=f77e20] [cursor=pointer]:
+          - term [ref=f77e22]: Resources
+          - definition [ref=f77e24]:
+            - link [ref=f77e25]:
+              - /url: https://fly.io/docs/
+            - link [ref=f77e27]:
+              - /url: https://community.fly.io
+            - link [ref=f77e29]:
+              - /url: https://fly.io/blog/
+            - link [ref=f77e31]:
+              - /url: https://fly.io/sprites-blog/
+            - link [ref=f77e33]:
+              - /url: https://fly.io/toolbox-turnout/
+            - link [ref=f77e35]:
+              - /url: https://fly.io/phoenix-files/
+            - link [ref=f77e37]:
+              - /url: https://fly.io/laravel-bytes/
+            - link [ref=f77e39]:
+              - /url: https://fly.io/ruby-dispatch/
+            - link [ref=f77e41]:
+              - /url: https://fly.io/django-beats/
+            - link [ref=f77e43]:
+              - /url: https://fly.io/javascript-journal/
+        - generic [ref=f77e45] [cursor=pointer]:
+          - term [ref=f77e47]: Account
+          - definition [ref=f77e49]:
+            - generic [ref=f77e50]:
+              - generic [ref=f77e51]: Signed in as
+              - generic [ref=f77e52]: popsilencer@gmail.com
+            - separator [ref=f77e53]
+            - link [ref=f77e54]:
+              - /url: /user/settings
+            - link [ref=f77e56]:
+              - /url: /organizations
+            - link [ref=f77e58]:
+              - /url: /tokens
+            - link [ref=f77e60]:
+              - /url: /app/sign-out
+  - generic [ref=f77e63]:
+    - generic [ref=f77e64]:
+      - generic [ref=f77e65]:
+        - generic [ref=f77e66]: Organization
+        - button "Personal ⌘ K" [ref=f77e67] [cursor=pointer]:
+          - generic [ref=f77e68]: Personal
+          - generic:
+            - generic:
+              - generic: ⌘
+              - text: K
+      - button "Launch an App" [ref=f77e70] [cursor=pointer]
+      - navigation [ref=f77e71]:
+        - link "Apps" [ref=f77e72] [cursor=pointer]:
+          - /url: /dashboard/popsilencer-gmail-com
+        - link "Team" [ref=f77e75] [cursor=pointer]:
+          - /url: /dashboard/popsilencer-gmail-com/team
+        - separator [ref=f77e78]
+        - link "Activity" [ref=f77e79] [cursor=pointer]:
+          - /url: /dashboard/popsilencer-gmail-com/activity
+        - link "Grafana" [ref=f77e82] [cursor=pointer]:
+          - /url: https://fly-metrics.net/d/fly-app/fly-app?orgId=1774435
+        - separator [ref=f77e85]
+        - link "Managed Postgres" [ref=f77e86] [cursor=pointer]:
+          - /url: /dashboard/popsilencer-gmail-com/managed_postgres
+        - link "Phoenix.new Logo phoenix.new" [ref=f77e89] [cursor=pointer]:
+          - /url: /dashboard/popsilencer-gmail-com/flynet
+          - generic [ref=f77e90]:
+            - img "Phoenix.new Logo"
+          - generic [ref=f77e91]: phoenix.new
+        - link "Upstash Redis" [ref=f77e92] [cursor=pointer]:
+          - /url: /dashboard/popsilencer-gmail-com/redis
+        - link "Tigris Object Storage" [ref=f77e95] [cursor=pointer]:
+          - /url: /dashboard/popsilencer-gmail-com/tigris
+        - link "Legacy Postgres Legacy Postgres clusters are unmanaged and require manual configuration" [ref=f77e98] [cursor=pointer]:
+          - /url: /dashboard/popsilencer-gmail-com/postgres
+          - generic [ref=f77e100]: Legacy Postgres
+          - generic [ref=f77e101]: Legacy Postgres clusters are unmanaged and require manual configuration
+        - separator [ref=f77e103]
+        - link "Status" [ref=f77e104] [cursor=pointer]:
+          - /url: /dashboard/popsilencer-gmail-com/status
+        - link "Support FREE TRIAL" [ref=f77e107] [cursor=pointer]:
+          - /url: /dashboard/popsilencer-gmail-com/support
+          - generic [ref=f77e109]: Support
+          - generic [ref=f77e110]: FREE TRIAL
+        - link "Compliance" [ref=f77e111] [cursor=pointer]:
+          - /url: /dashboard/popsilencer-gmail-com/compliance
+        - link "Tokens" [ref=f77e114] [cursor=pointer]:
+          - /url: /dashboard/popsilencer-gmail-com/tokens
+        - separator [ref=f77e117]
+        - link "Usage" [ref=f77e118] [cursor=pointer]:
+          - /url: /dashboard/popsilencer-gmail-com/usage
+        - link "Billing" [ref=f77e121] [cursor=pointer]:
+          - /url: /dashboard/popsilencer-gmail-com/billing
+        - link "Settings" [ref=f77e124] [cursor=pointer]:
+          - /url: /dashboard/popsilencer-gmail-com/settings
+    - generic [ref=f77e127]:
+      - main [ref=f77e128]:
+        - generic [ref=f77e131]:
+          - generic [ref=f77e132]:
+            - heading "Apps" [level=1] [ref=f77e133]
+            - generic [ref=f77e294]:
+              - generic [ref=f77e295]: "1"
+              - text: app
+          - generic [ref=f77e134]:
+            - generic [ref=f77e135]:
+              - generic [ref=f77e136]: Search
+              - generic [ref=f77e137]:
+                - textbox "Search apps..." [ref=f77e138]
+                - generic: /
+            - generic [ref=f77e141]:
+              - generic [ref=f77e142] [cursor=pointer]:
+                - checkbox [checked]
+                - generic [ref=f77e143]:
+                  - generic [ref=f77e145]: Deployed
+                  - generic [ref=f77e296]: "0"
+              - generic [ref=f77e148] [cursor=pointer]:
+                - checkbox [checked]
+                - generic [ref=f77e149]:
+                  - generic [ref=f77e151]: Pending
+                  - generic [ref=f77e299]: "1"
+              - generic [ref=f77e154] [cursor=pointer]:
+                - checkbox [checked]
+                - generic [ref=f77e155]:
+                  - generic [ref=f77e157]: Suspended
+                  - generic [ref=f77e302]: "0"
+        - list [ref=f77e160]:
+          - region "stockapp-tm3ypw" [ref=f77e306]:
+            - heading [level=2] [ref=f77e312]:
+              - link "stockapp-tm3ypw" [active] [ref=f77e313] [cursor=pointer]:
+                - /url: /apps/stockapp-tm3ypw
+          - navigation "Pagination" [ref=f77e316]:
+            - paragraph [ref=f77e318]: Displaying 1 out of 1 total.
+      - complementary [ref=f77e262]:
+        - generic [ref=f77e264]:
+          - heading "Recent Activity" [level=3] [ref=f77e267]
+          - list [ref=f77e319]:
+            - listitem [ref=f77e320]:
+              - generic [ref=f77e321]:
+                - paragraph [ref=f77e322]:
+                  - link "stockapp-tm3ypw" [ref=f77e323] [cursor=pointer]:
+                    - /url: /apps/stockapp-tm3ypw
+                  - text: updated
+                - paragraph [ref=f77e324]: 5 minutes ago
+            - listitem [ref=f77e325]:
+              - generic [ref=f77e326]:
+                - paragraph [ref=f77e327]:
+                  - link "stockapp-tm3ypw" [ref=f77e328] [cursor=pointer]:
+                    - /url: /apps/stockapp-tm3ypw
+                  - text: updated
+                - paragraph [ref=f77e329]: 8 minutes ago
+  - alert
+  - alert
+  - alert
+  - alert
+  - alert

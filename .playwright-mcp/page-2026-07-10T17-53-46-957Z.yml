@@ -1,0 +1,182 @@
+- generic [ref=f77e330]:
+  - banner [ref=f77e331]:
+    - generic [ref=f77e332]:
+      - link [ref=f77e334] [cursor=pointer]:
+        - /url: /dashboard/popsilencer-gmail-com
+      - navigation [ref=f77e335]:
+        - generic [ref=f77e337]:
+          - generic:
+            - term
+            - definition [ref=f77e339]:
+              - generic [ref=f77e340]:
+                - heading "Resource Usage" [level=3] [ref=f77e341]
+                - generic [ref=f77e343]:
+                  - generic [ref=f77e344]:
+                    - text: Machines
+                    - generic [ref=f77e345]:
+                      - generic:
+                        - text: The Machines limit is a fail-safe to prevent runaway creation of machines. If you need this limit increased, please email us at
+                        - link "billing@fly.io":
+                          - /url: mailto:billing@fly.io
+                  - generic [ref=f77e346]: 0/100
+        - link [ref=f77e350] [cursor=pointer]:
+          - /url: /dashboard
+        - link [ref=f77e352] [cursor=pointer]:
+          - /url: https://community.fly.io/c/fresh-produce/27?order=created
+        - generic [ref=f77e354] [cursor=pointer]:
+          - term [ref=f77e356]: Resources
+          - definition [ref=f77e358]:
+            - link [ref=f77e359]:
+              - /url: https://fly.io/docs/
+            - link [ref=f77e361]:
+              - /url: https://community.fly.io
+            - link [ref=f77e363]:
+              - /url: https://fly.io/blog/
+            - link [ref=f77e365]:
+              - /url: https://fly.io/sprites-blog/
+            - link [ref=f77e367]:
+              - /url: https://fly.io/toolbox-turnout/
+            - link [ref=f77e369]:
+              - /url: https://fly.io/phoenix-files/
+            - link [ref=f77e371]:
+              - /url: https://fly.io/laravel-bytes/
+            - link [ref=f77e373]:
+              - /url: https://fly.io/ruby-dispatch/
+            - link [ref=f77e375]:
+              - /url: https://fly.io/django-beats/
+            - link [ref=f77e377]:
+              - /url: https://fly.io/javascript-journal/
+        - generic [ref=f77e379] [cursor=pointer]:
+          - term [ref=f77e381]: Account
+          - definition [ref=f77e383]:
+            - generic [ref=f77e384]:
+              - generic [ref=f77e385]: Signed in as
+              - generic [ref=f77e386]: popsilencer@gmail.com
+            - separator [ref=f77e387]
+            - link [ref=f77e388]:
+              - /url: /user/settings
+            - link [ref=f77e390]:
+              - /url: /organizations
+            - link [ref=f77e392]:
+              - /url: /tokens
+            - link [ref=f77e394]:
+              - /url: /app/sign-out
+  - navigation "Breadcrumb" [ref=f77e396]:
+    - list [ref=f77e397]:
+      - listitem [ref=f77e398]:
+        - link "Personal" [ref=f77e399] [cursor=pointer]:
+          - /url: /dashboard/popsilencer-gmail-com
+      - listitem [ref=f77e400]:
+        - generic [ref=f77e403]:
+          - link "stockapp-tm3ypw" [ref=f77e404] [cursor=pointer]:
+            - /url: /apps/stockapp-tm3ypw
+          - button "Copy app name" [ref=f77e405] [cursor=pointer]
+      - listitem [ref=f77e408]:
+        - generic [ref=f77e411]: Overview
+      - listitem [ref=f77e412]:
+        - link "Pending The app could be in the process of deploying, or the app could be created, but not yet deployed." [ref=f77e413] [cursor=pointer]:
+          - /url: /apps/stockapp-tm3ypw
+          - generic [ref=f77e414]:
+            - generic [ref=f77e415]: Pending
+            - generic:
+              - paragraph: The app could be in the process of deploying, or the app could be created, but not yet deployed.
+  - generic [ref=f77e416]:
+    - navigation [ref=f77e417]:
+      - link "Overview" [ref=f77e418] [cursor=pointer]:
+        - /url: /apps/stockapp-tm3ypw
+      - link "fly.toml" [ref=f77e421] [cursor=pointer]:
+        - /url: /apps/stockapp-tm3ypw/configuration
+      - link "Machines" [ref=f77e424] [cursor=pointer]:
+        - /url: /apps/stockapp-tm3ypw/machines
+      - link "Volumes" [ref=f77e427] [cursor=pointer]:
+        - /url: /apps/stockapp-tm3ypw/volumes
+      - separator [ref=f77e430]
+      - link "Activity" [ref=f77e431] [cursor=pointer]:
+        - /url: /apps/stockapp-tm3ypw/activity
+      - link "Metrics" [ref=f77e434] [cursor=pointer]:
+        - /url: /apps/stockapp-tm3ypw/metrics
+      - link "Logs & Errors" [ref=f77e437] [cursor=pointer]:
+        - /url: /apps/stockapp-tm3ypw/monitoring
+      - separator [ref=f77e440]
+      - link "Certificates" [ref=f77e441] [cursor=pointer]:
+        - /url: /apps/stockapp-tm3ypw/certificates
+      - link "Registry" [ref=f77e444] [cursor=pointer]:
+        - /url: /apps/stockapp-tm3ypw/registry
+      - link "Secrets" [ref=f77e447] [cursor=pointer]:
+        - /url: /apps/stockapp-tm3ypw/secrets
+      - separator [ref=f77e450]
+      - link "Tokens" [ref=f77e451] [cursor=pointer]:
+        - /url: /apps/stockapp-tm3ypw/tokens
+      - link "Settings" [ref=f77e454] [cursor=pointer]:
+        - /url: /apps/stockapp-tm3ypw/settings
+    - generic [ref=f77e457]:
+      - generic [ref=f77e459]:
+        - generic [ref=f77e466]:
+          - 'heading "Actions required: Your app hasn''t been deployed yet" [level=2] [ref=f77e467]'
+          - paragraph [ref=f77e469]:
+            - text: Launch is the process of taking your repository and adding a Dockerfile (if needed) so you can deploy to our platform. We also need to create a
+            - code [ref=f77e470]: fly.toml
+            - text: file to configure your app so your next deployments will know which app they're deploying to.
+          - generic [ref=f77e471]:
+            - button "Launch app via UI" [ref=f77e472] [cursor=pointer]
+            - link "Launch via CLI" [ref=f77e474] [cursor=pointer]:
+              - /url: /dashboard/popsilencer-gmail-com/new-launch?tab=cli
+        - generic [ref=f77e476]:
+          - generic [ref=f77e481]:
+            - heading "popsilencer/StockAPP Visit the repo on GitHub" [level=2] [ref=f77e482]:
+              - generic [ref=f77e483]:
+                - generic [ref=f77e484]: popsilencer/StockAPP
+                - generic [ref=f77e485]:
+                  - link [ref=f77e486] [cursor=pointer]:
+                    - /url: https://github.com/popsilencer/StockAPP
+                  - generic: Visit the repo on GitHub
+            - paragraph [ref=f77e488]: Attached July 10, 2026 5:45PM by popsilencer@gmail.com
+          - generic [ref=f77e489]:
+            - heading "Activity" [level=2] [ref=f77e490]
+            - list [ref=f77e492]:
+              - listitem [ref=f77e493]:
+                - link "Launch by Failed 4 minutes ago Jul 10, 2026 17:49 UTC (took 68s)" [ref=f77e494] [cursor=pointer]:
+                  - /url: /apps/stockapp-tm3ypw/deployments/1710017
+                  - generic [ref=f77e501]:
+                    - text: Launch by
+                    - generic [ref=f77e502]:
+                      - generic [ref=f77e503]: Failed
+                      - generic [ref=f77e504]:
+                        - generic [ref=f77e505]:
+                          - time [ref=f77e506]: 4 minutes ago
+                          - generic: Jul 10, 2026 17:49 UTC
+                        - text: (took 68s)
+            - link "See all activity" [ref=f77e510] [cursor=pointer]:
+              - /url: /apps/stockapp-tm3ypw/activity
+          - generic [ref=f77e511]:
+            - heading "Resource Usage" [level=2] [ref=f77e512]
+            - generic [ref=f77e514]:
+              - generic [ref=f77e515]:
+                - generic [ref=f77e516]:
+                  - text: Machines
+                  - generic [ref=f77e517]:
+                    - generic:
+                      - text: The Machines limit is a fail-safe to prevent runaway creation of machines. If you need this limit increased, please email us at
+                      - link "billing@fly.io":
+                        - /url: mailto:billing@fly.io
+                - generic [ref=f77e518]: 0/100
+              - generic [ref=f77e519]: 0 total machines
+              - generic [ref=f77e523]:
+                - generic [ref=f77e524]: 0 from this app
+                - generic [ref=f77e527]: 0 from other apps
+      - dialog [ref=f77e531]:
+        - generic [ref=f77e535]:
+          - button "close" [ref=f77e537] [cursor=pointer]
+          - heading "Deploy app" [level=2] [ref=f77e539]
+          - generic [ref=f77e540]:
+            - generic [ref=f77e541]:
+              - img "https://avatars.githubusercontent.com/u/19864447?v=4's avatar" [ref=f77e543]
+              - generic [ref=f77e544]:
+                - paragraph [ref=f77e545]: "Merge pull request #1 from popsilencer/flyio-new-files New f"
+                - paragraph [ref=f77e546]: 0c0fef3 on main by GitHub
+            - button "Start Launch" [active] [ref=f77e548] [cursor=pointer]
+  - alert
+  - alert
+  - alert
+  - alert
+  - alert

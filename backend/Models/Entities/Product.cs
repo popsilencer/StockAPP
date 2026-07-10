@@ -9,4 +9,5 @@ public class Product
     public string Unit { get; set; } = string.Empty;
     public int Quantity { get; set; }
     public int ReorderLevel { get; set; }
+    public int? CompanyId { get; set; }
 }

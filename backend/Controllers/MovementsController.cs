@@ -11,20 +11,26 @@ namespace StockApp.Controllers;
 public class MovementsController : ControllerBase
 {
     private readonly StockService _stockService;
+    private readonly CompanyContext _companyContext;
 
-    public MovementsController(StockService stockService) => _stockService = stockService;
+    public MovementsController(StockService stockService, CompanyContext companyContext)
+    {
+        _stockService = stockService;
+        _companyContext = companyContext;
+    }
+
+    private int? Cid => _companyContext.Resolve(HttpContext);
 
     [HttpGet]
     public IActionResult GetAll([FromQuery] int? productId)
-        => Ok(_stockService.GetMovements(productId));
+        => Ok(_stockService.GetMovements(productId, Cid));
 
-    // Absolute route — POST /api/products/{productId}/movements
     [HttpPost("/api/products/{productId:int}/movements")]
     public IActionResult Create(int productId, [FromBody] MovementRequest request)
     {
         try
         {
-            var movement = _stockService.AdjustStock(productId, request);
+            var movement = _stockService.AdjustStock(productId, request, Cid);
             return Ok(movement);
         }
         catch (KeyNotFoundException) { return NotFound(); }

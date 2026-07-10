@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using StockApp.Models.Dtos;
@@ -21,5 +22,22 @@ public class AuthController : ControllerBase
         if (token == null)
             return Unauthorized(new { message = "Invalid username or password" });
         return Ok(new LoginResponse { Token = token });
+    }
+
+    [HttpPost("change-password")]
+    [Authorize]
+    public IActionResult ChangePassword([FromBody] ChangePasswordRequest request)
+    {
+        var userIdStr = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        if (userIdStr == null || !int.TryParse(userIdStr, out int userId))
+            return Unauthorized();
+
+        try
+        {
+            _authService.ChangePassword(userId, request.CurrentPassword, request.NewPassword);
+            return NoContent();
+        }
+        catch (KeyNotFoundException) { return NotFound(); }
+        catch (InvalidOperationException ex) { return BadRequest(new { message = ex.Message }); }
     }
 }

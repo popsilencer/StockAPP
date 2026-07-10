@@ -20,7 +20,8 @@
           <label for="password">Password</label>
           <div class="input-wrapper">
             <i class="pi pi-lock input-icon"></i>
-            <InputText id="password" v-model="password" type="password" placeholder="Enter password" class="w-full" />
+            <InputText id="password" v-model="password" :type="showPassword ? 'text' : 'password'" placeholder="Enter password" class="w-full" />
+            <i :class="showPassword ? 'pi pi-eye-slash' : 'pi pi-eye'" class="toggle-icon" @click="showPassword = !showPassword" :title="showPassword ? 'Hide' : 'Show'"></i>
           </div>
         </div>
         <Button type="submit" label="Sign In" class="w-full login-btn" :loading="loading" />
@@ -36,6 +37,7 @@ import { useAuthStore } from '../stores/auth'
 const auth = useAuthStore()
 const username = ref('')
 const password = ref('')
+const showPassword = ref(false)
 const loading = ref(false)
 
 async function handleLogin() {
@@ -131,6 +133,22 @@ async function handleLogin() {
 
 .input-wrapper .w-full {
   padding-left: 2.5rem !important;
+}
+
+.toggle-icon {
+  position: absolute;
+  right: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gray-400);
+  font-size: 0.95rem;
+  cursor: pointer;
+  z-index: 1;
+  transition: color 0.2s;
+}
+
+.toggle-icon:hover {
+  color: var(--pink-500);
 }
 
 .w-full {
