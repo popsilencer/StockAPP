@@ -1,0 +1,24 @@
+# .NET
+**/bin/
+**/obj/
+*.user
+*.suo
+
+# Node / Vue
+**/node_modules/
+**/dist/
+.env
+.env.local
+*.log
+
+# LiteDB local data
+**/*.db
+**/*.db-journal
+
+# OS
+Thumbs.db
+.DS_Store
+
+# IDE
+.vs/
+.idea/

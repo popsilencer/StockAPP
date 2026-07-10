@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git -c user.email=\"stock@local\" -c user.name=\"stock\" commit -q -m \"docs: add stock app design spec\")"
+    ]
+  }
+}
