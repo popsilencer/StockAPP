@@ -1,5 +1,5 @@
 <template>
-  <Dialog v-model:visible="visible" modal :header="`Stock ${initialType === 'In' ? 'In' : 'Out'} — ${product?.name}`" :style="{ width: '400px' }">
+  <Dialog v-model:visible="isOpen" modal :header="`Stock ${initialType === 'In' ? 'In' : 'Out'} — ${product?.name}`" :style="{ width: '400px' }">
     <form @submit.prevent="submit">
       <div class="field">
         <label>Type</label>
@@ -21,7 +21,7 @@
       <p class="current-stock">Current stock: <strong>{{ product?.quantity }} {{ product?.unit }}</strong></p>
     </form>
     <template #footer>
-      <Button label="Cancel" text severity="secondary" @click="$emit('close')" />
+      <Button label="Cancel" text severity="secondary" @click="close" />
       <Button :label="`Confirm ${initialType === 'In' ? 'In' : 'Out'}`" :severity="initialType === 'In' ? 'success' : 'danger'" @click="submit" />
     </template>
   </Dialog>
@@ -38,8 +38,16 @@ const props = defineProps({
 const emit = defineEmits(['update:visible', 'save', 'close'])
 
 const form = ref({ type: 'In', quantity: 1, note: '' })
+const isOpen = ref(false)
 
+watch(() => props.visible, (v) => { isOpen.value = v }, { immediate: true })
 watch(() => props.initialType, (t) => { form.value.type = t }, { immediate: true })
+
+function close() {
+  isOpen.value = false
+  emit('close')
+  emit('update:visible', false)
+}
 
 function submit() {
   emit('save', { type: form.value.type, quantity: form.value.quantity, note: form.value.note })

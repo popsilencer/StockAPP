@@ -15,7 +15,12 @@
       "Bash(git -c user.email=\"stock@local\" -c user.name=\"stock\" commit -q -m \"feat: add middleware, Program.cs, appsettings, seed user\")",
       "Bash(dotnet test *)",
       "Bash(git -c user.email=\"stock@local\" -c user.name=\"stock\" commit -q -m \"test: add xUnit tests for ProductService, StockService, AuthService \\(12/12 passing\\)\")",
-      "Bash(npm install *)"
+      "Bash(npm install *)",
+      "Bash(dotnet run *)",
+      "Bash(npm run *)",
+      "mcp__plugin_playwright_playwright__browser_navigate",
+      "mcp__plugin_playwright_playwright__browser_snapshot",
+      "Bash(taskkill //F //IM node.exe)"
     ]
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <Dialog v-model:visible="visible" modal :header="isEdit ? 'Edit Product' : 'Add Product'" :style="{ width: '450px' }">
+  <Dialog v-model:visible="isOpen" modal :header="isEdit ? 'Edit Product' : 'Add Product'" :style="{ width: '450px' }">
     <form @submit.prevent="submit">
       <div class="field">
         <label for="sku">SKU</label>
@@ -29,7 +29,7 @@
       </div>
     </form>
     <template #footer>
-      <Button label="Cancel" text severity="secondary" @click="$emit('close')" />
+      <Button label="Cancel" text severity="secondary" @click="close" />
       <Button label="Save" @click="submit" />
     </template>
   </Dialog>
@@ -46,8 +46,17 @@ const emit = defineEmits(['update:visible', 'save', 'close'])
 
 const defaultForm = () => ({ sku: '', name: '', description: '', unit: '', quantity: 0, reorderLevel: 0 })
 const form = ref(defaultForm())
+const isOpen = ref(false)
 
 const isEdit = computed(() => !!props.product)
+
+watch(() => props.visible, (v) => { isOpen.value = v }, { immediate: true })
+
+function close() {
+  isOpen.value = false
+  emit('close')
+  emit('update:visible', false)
+}
 
 watch(() => props.product, (p) => {
   if (p) form.value = { ...p }
