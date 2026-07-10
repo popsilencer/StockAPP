@@ -53,6 +53,22 @@ public class StockService
         }
     }
 
-    public IEnumerable<StockMovement> GetMovements(int? productId = null)
-        => _movementRepo.GetAll(productId);
+    public IEnumerable<MovementDto> GetMovements(int? productId = null)
+    {
+        return _movementRepo.GetAll(productId).Select(m =>
+        {
+            var product = _productRepo.GetById(m.ProductId);
+            return new MovementDto
+            {
+                Id = m.Id,
+                ProductId = m.ProductId,
+                Sku = product?.Sku ?? "(deleted)",
+                ProductName = product?.Name ?? "(deleted)",
+                Type = m.Type,
+                Quantity = m.Quantity,
+                Note = m.Note,
+                CreatedAt = m.CreatedAt
+            };
+        });
+    }
 }
