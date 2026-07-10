@@ -1,12 +1,10 @@
 <template>
   <div class="movements-page">
     <div class="page-header">
-      <h1>Movement History</h1>
       <div class="actions">
         <InputText v-model="productId" placeholder="Product ID filter" class="filter-input" @keyup.enter="fetch" />
         <Button label="Filter" icon="pi pi-filter" @click="fetch" />
         <Button label="All" icon="pi pi-list" severity="secondary" @click="fetchAll" />
-        <Button label="Back to Products" icon="pi pi-arrow-left" @click="$router.push('/products')" />
       </div>
     </div>
     <DataTable :value="store.movements" tableStyle="min-width: 100%">

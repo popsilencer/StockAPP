@@ -1,13 +1,11 @@
 <template>
   <div class="products-page">
     <div class="page-header">
-      <h1>Products</h1>
       <div class="actions">
         <InputText v-model="search" placeholder="Search..." class="search-input" @keyup.enter="doSearch" />
         <Button label="Search" icon="pi pi-search" @click="doSearch" />
         <Button label="Add Product" icon="pi pi-plus" severity="success" @click="openAdd" />
         <Button label="Low Stock" icon="pi pi-exclamation-triangle" severity="warn" @click="showLowStock" />
-        <Button label="Logout" icon="pi pi-sign-out" severity="secondary" @click="logout" />
       </div>
     </div>
 
