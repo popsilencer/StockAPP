@@ -87,11 +87,11 @@ public class StockService
             throw new InvalidOperationException("No items to withdraw");
 
         var withdrawNo = GetNextWithdrawNo();
+        var lines = new List<WithdrawLine>();
 
         _ctx.BeginTransaction();
         try
         {
-            int processed = 0;
             foreach (var item in request.Items)
             {
                 var product = _productRepo.GetById(item.ProductId);
@@ -115,15 +115,31 @@ public class StockService
 
                 product.Quantity -= item.Quantity;
                 _productRepo.Update(product);
-                processed++;
+
+                lines.Add(new WithdrawLine
+                {
+                    ProductId = item.ProductId,
+                    Sku = product.Sku,
+                    ProductName = product.Name,
+                    Quantity = item.Quantity
+                });
             }
+
+            var withdraw = new Withdraw
+            {
+                WithdrawNo = withdrawNo,
+                Date = request.Date,
+                Note = request.Note,
+                Items = lines
+            };
+            _ctx.Withdraws.Insert(withdraw);
 
             _ctx.CommitTransaction();
             return new WithdrawResult
             {
                 WithdrawNo = withdrawNo,
                 Date = request.Date,
-                ProcessedCount = processed
+                ProcessedCount = lines.Count
             };
         }
         catch
@@ -132,4 +148,9 @@ public class StockService
             throw;
         }
     }
+
+    public List<Withdraw> GetWithdraws()
+        => _ctx.Withdraws.FindAll().OrderByDescending(w => w.Date).ThenByDescending(w => w.Id).ToList();
+
+    public Withdraw? GetWithdraw(int id) => _ctx.Withdraws.FindById(id);
 }

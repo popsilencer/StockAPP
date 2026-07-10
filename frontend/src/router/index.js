@@ -4,7 +4,9 @@ const routes = [
   { path: '/login', name: 'Login', component: () => import('../views/LoginView.vue') },
   { path: '/products', name: 'Products', component: () => import('../views/ProductsView.vue'), meta: { requiresAuth: true } },
   { path: '/movements', name: 'Movements', component: () => import('../views/MovementsView.vue'), meta: { requiresAuth: true } },
-  { path: '/withdraw', name: 'Withdraw', component: () => import('../views/WithdrawView.vue'), meta: { requiresAuth: true } },
+  { path: '/withdraw', name: 'Withdraw', component: () => import('../views/WithdrawListView.vue'), meta: { requiresAuth: true } },
+  { path: '/withdraw/new', name: 'WithdrawNew', component: () => import('../views/WithdrawView.vue'), meta: { requiresAuth: true } },
+  { path: '/withdraw/:id', name: 'WithdrawDetail', component: () => import('../views/WithdrawDetailView.vue'), meta: { requiresAuth: true } },
   { path: '/', redirect: '/products' }
 ]
 

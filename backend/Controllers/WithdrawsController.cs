@@ -18,6 +18,17 @@ public class WithdrawsController : ControllerBase
     public IActionResult GetNextNo()
         => Ok(new { withdrawNo = _stockService.GetNextWithdrawNo() });
 
+    [HttpGet]
+    public IActionResult GetAll()
+        => Ok(_stockService.GetWithdraws());
+
+    [HttpGet("{id:int}")]
+    public IActionResult GetById(int id)
+    {
+        var w = _stockService.GetWithdraw(id);
+        return w == null ? NotFound() : Ok(w);
+    }
+
     [HttpPost]
     public IActionResult Create([FromBody] WithdrawRequest request)
     {

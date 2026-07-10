@@ -2,8 +2,9 @@
   <div class="withdraw-page">
     <div class="page-header">
       <div class="header-title">
+        <Button icon="pi pi-arrow-left" severity="secondary" text rounded @click="$router.push('/withdraw')" />
         <i class="pi pi-shopping-cart title-icon"></i>
-        <h2>Withdraw Products</h2>
+        <h2>New Withdraw</h2>
       </div>
     </div>
 
@@ -106,10 +107,12 @@
 
 <script setup>
 import { ref, computed, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
 import { useProductsStore } from '../stores/products'
 import { withdrawsApi } from '../api/withdraws'
 import { useToast } from 'primevue/usetoast'
 
+const router = useRouter()
 const store = useProductsStore()
 const toast = useToast()
 
@@ -186,7 +189,7 @@ async function processWithdraw() {
     note.value = ''
     await store.fetchAll()
     await store.fetchLowStock()
-    await loadNextNo()
+    router.push('/withdraw')
   } catch (err) {
     const msg = err.response?.data?.message || 'Withdrawal failed'
     toast.add({ severity: 'error', summary: 'Error', detail: msg, life: 4000 })
