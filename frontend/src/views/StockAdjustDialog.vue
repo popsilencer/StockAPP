@@ -1,13 +1,15 @@
 <template>
-  <Dialog v-model:visible="isOpen" modal :header="`Stock ${initialType === 'In' ? 'In' : 'Out'} — ${product?.name}`" :style="{ width: '400px' }">
+  <Dialog v-model:visible="visible" modal :header="`Stock ${initialType === 'In' ? 'In' : 'Out'} — ${product?.name}`" :style="{ width: '400px' }">
     <form @submit.prevent="submit">
       <div class="field">
         <label>Type</label>
         <div class="type-row">
-          <Button type="button" :label="'Stock In'" :severity="form.type === 'In' ? 'success' : 'secondary'"
-            :outlined="form.type !== 'In'" @click="form.type = 'In'" class="flex-1" />
-          <Button type="button" :label="'Stock Out'" :severity="form.type === 'Out' ? 'danger' : 'secondary'"
-            :outlined="form.type !== 'Out'" @click="form.type = 'Out'" class="flex-1" />
+          <Button type="button" label="Stock In" icon="pi pi-arrow-down"
+            :severity="form.type === 'In' ? 'success' : 'secondary'"
+            :outlined="form.type !== 'In'" class="flex-1" @click="form.type = 'In'" />
+          <Button type="button" label="Stock Out" icon="pi pi-arrow-up"
+            :severity="form.type === 'Out' ? 'danger' : 'secondary'"
+            :outlined="form.type !== 'Out'" class="flex-1" @click="form.type = 'Out'" />
         </div>
       </div>
       <div class="field">
@@ -21,33 +23,31 @@
       <p class="current-stock">Current stock: <strong>{{ product?.quantity }} {{ product?.unit }}</strong></p>
     </form>
     <template #footer>
-      <Button label="Cancel" text severity="secondary" @click="close" />
-      <Button :label="`Confirm ${initialType === 'In' ? 'In' : 'Out'}`" :severity="initialType === 'In' ? 'success' : 'danger'" @click="submit" />
+      <Button label="Cancel" severity="secondary" outlined @click="visible = false" />
+      <Button :label="`Confirm ${form.type === 'In' ? 'In' : 'Out'}`"
+        :severity="form.type === 'In' ? 'success' : 'danger'" @click="submit" />
     </template>
   </Dialog>
 </template>
 
 <script setup>
-import { ref, watch } from 'vue'
+import { ref, computed, watch } from 'vue'
 
 const props = defineProps({
   visible: Boolean,
   product: Object,
   initialType: { type: String, default: 'In' }
 })
-const emit = defineEmits(['update:visible', 'save', 'close'])
+const emit = defineEmits(['update:visible', 'save'])
 
 const form = ref({ type: 'In', quantity: 1, note: '' })
-const isOpen = ref(false)
 
-watch(() => props.visible, (v) => { isOpen.value = v }, { immediate: true })
+const visible = computed({
+  get: () => props.visible,
+  set: (val) => emit('update:visible', val)
+})
+
 watch(() => props.initialType, (t) => { form.value.type = t }, { immediate: true })
-
-function close() {
-  isOpen.value = false
-  emit('close')
-  emit('update:visible', false)
-}
 
 function submit() {
   emit('save', { type: form.value.type, quantity: form.value.quantity, note: form.value.note })
@@ -56,9 +56,9 @@ function submit() {
 
 <style scoped>
 .field { margin-bottom: 0.75rem; }
-.field label { display: block; margin-bottom: 0.25rem; font-weight: 600; font-size: 0.875rem; }
+.field label { display: block; margin-bottom: 0.4rem; font-weight: 600; font-size: 0.85rem; color: var(--gray-600); }
 .type-row { display: flex; gap: 0.5rem; }
 .flex-1 { flex: 1; }
-.current-stock { color: var(--text-color-secondary); font-size: 0.875rem; margin-top: 0.5rem; }
+.current-stock { color: var(--gray-400); font-size: 0.85rem; margin-top: 0.5rem; }
 .w-full { width: 100%; }
 </style>

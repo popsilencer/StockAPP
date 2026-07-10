@@ -1,5 +1,5 @@
 <template>
-  <Dialog v-model:visible="isOpen" modal :header="isEdit ? 'Edit Product' : 'Add Product'" :style="{ width: '450px' }">
+  <Dialog v-model:visible="visible" modal :header="isEdit ? 'Edit Product' : 'Add Product'" :style="{ width: '450px' }">
     <form @submit.prevent="submit">
       <div class="field">
         <label for="sku">SKU</label>
@@ -29,8 +29,8 @@
       </div>
     </form>
     <template #footer>
-      <Button label="Cancel" text severity="secondary" @click="close" />
-      <Button label="Save" @click="submit" />
+      <Button label="Cancel" severity="secondary" outlined @click="visible = false" />
+      <Button :label="isEdit ? 'Save' : 'Create'" @click="submit" />
     </template>
   </Dialog>
 </template>
@@ -42,21 +42,17 @@ const props = defineProps({
   visible: Boolean,
   product: Object
 })
-const emit = defineEmits(['update:visible', 'save', 'close'])
+const emit = defineEmits(['update:visible', 'save'])
 
 const defaultForm = () => ({ sku: '', name: '', description: '', unit: '', quantity: 0, reorderLevel: 0 })
 const form = ref(defaultForm())
-const isOpen = ref(false)
+
+const visible = computed({
+  get: () => props.visible,
+  set: (val) => emit('update:visible', val)
+})
 
 const isEdit = computed(() => !!props.product)
-
-watch(() => props.visible, (v) => { isOpen.value = v }, { immediate: true })
-
-function close() {
-  isOpen.value = false
-  emit('close')
-  emit('update:visible', false)
-}
 
 watch(() => props.product, (p) => {
   if (p) form.value = { ...p }
@@ -70,7 +66,7 @@ function submit() {
 
 <style scoped>
 .field { margin-bottom: 0.75rem; }
-.field label { display: block; margin-bottom: 0.25rem; font-weight: 600; font-size: 0.875rem; }
+.field label { display: block; margin-bottom: 0.4rem; font-weight: 600; font-size: 0.85rem; color: var(--gray-600); }
 .field-row { display: flex; gap: 1rem; }
 .field-row .field { flex: 1; }
 .w-full { width: 100%; }
