@@ -55,8 +55,8 @@
     <Dialog v-model:visible="deleteVisible" modal header="Confirm Delete" :style="{ width: '350px' }">
       <p>Delete product <strong>{{ deletingProduct?.name }}</strong>? This cannot be undone.</p>
       <template #footer>
-        <Button label="Cancel" text severity="secondary" @click="deleteVisible = false" />
-        <Button label="Delete" severity="danger" @click="handleDelete" />
+        <Button label="Cancel" severity="secondary" outlined @click="deleteVisible = false" />
+        <Button label="Delete" icon="pi pi-trash" severity="danger" @click="handleDelete" />
       </template>
     </Dialog>
   </div>
