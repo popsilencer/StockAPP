@@ -78,7 +78,7 @@ public class StockService
         var counter = _ctx.Counters.FindById("withdraw");
         int next = counter == null ? 1 : counter["value"].AsInt32 + 1;
         _ctx.Counters.Upsert(new BsonDocument { ["_id"] = "withdraw", ["value"] = next });
-        return $"WD-{DateTime.Now:yyyy-MM-dd}-{next:D4}";
+        return $"WD{DateTime.Now:yyyyMMdd}-{next:D4}";
     }
 
     public WithdrawResult BatchWithdraw(WithdrawRequest request)
