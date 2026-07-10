@@ -3,7 +3,7 @@
   <div class="app-layout">
     <aside class="sidebar" v-if="auth.isLoggedIn">
       <div class="sidebar-header">
-        <h2>Stock App</h2>
+        <h2>Popsilencer Stock APP</h2>
       </div>
       <nav class="sidebar-nav">
         <router-link to="/products" class="nav-item" active-class="active">
