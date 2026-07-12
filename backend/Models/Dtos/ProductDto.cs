@@ -9,5 +9,7 @@ public class ProductDto
     public string? Description { get; set; }
     [Required] public string Unit { get; set; } = string.Empty;
     public int Quantity { get; set; }
+    [Range(0, double.MaxValue)]
+    public decimal Cost { get; set; }
     public int ReorderLevel { get; set; }
 }

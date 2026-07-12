@@ -23,6 +23,16 @@
         </template>
       </Column>
       <Column field="reorderLevel" header="Reorder" style="width: 100px"></Column>
+      <Column field="cost" header="Cost/Unit" style="width: 120px">
+        <template #body="slotProps">
+          {{ formatMoney(slotProps.data.cost) }}
+        </template>
+      </Column>
+      <Column field="costTotal" header="Cost Total" style="width: 140px">
+        <template #body="slotProps">
+          <strong>{{ formatMoney(slotProps.data.costTotal) }}</strong>
+        </template>
+      </Column>
       <Column header="Actions" style="width: 280px">
         <template #body="slotProps">
           <Button icon="pi pi-pencil" severity="info" rounded text @click="openEdit(slotProps.data)" title="Edit" />
@@ -87,6 +97,11 @@ const displayProducts = computed(() => {
   if (showLow.value) return store.lowStock
   return store.products
 })
+
+function formatMoney(value) {
+  const num = Number(value || 0)
+  return num.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+}
 
 onMounted(async () => {
   await store.fetchAll()

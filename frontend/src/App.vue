@@ -47,6 +47,10 @@
     <!-- Sidebar -->
     <aside class="sidebar" v-if="auth.isLoggedIn" :class="{ collapsed: sidebarCollapsed }">
       <nav class="sidebar-nav">
+        <router-link to="/dashboard" class="nav-item" active-class="active">
+          <i class="pi pi-chart-pie"></i>
+          <span>Dashboard</span>
+        </router-link>
         <router-link to="/withdraw" class="nav-item" active-class="active">
           <i class="pi pi-shopping-cart"></i>
           <span>Withdraw</span>

@@ -23,9 +23,19 @@
           <InputNumber id="quantity" v-model="form.quantity" class="w-full" :min="0" />
         </div>
       </div>
-      <div class="field">
-        <label for="reorder">Reorder Level</label>
-        <InputNumber id="reorder" v-model="form.reorderLevel" class="w-full" :min="0" />
+      <div class="field-row">
+        <div class="field">
+          <label for="cost">Cost (per unit)</label>
+          <InputNumber id="cost" v-model="form.cost" class="w-full" mode="decimal" :minFractionDigits="2" :maxFractionDigits="2" :min="0" />
+        </div>
+        <div class="field">
+          <label for="reorder">Reorder Level</label>
+          <InputNumber id="reorder" v-model="form.reorderLevel" class="w-full" :min="0" />
+        </div>
+      </div>
+      <div class="cost-total">
+        <span>Cost Total (cost × qty):</span>
+        <strong>{{ formatMoney(costTotal) }}</strong>
       </div>
     </form>
     <template #footer>
@@ -44,7 +54,7 @@ const props = defineProps({
 })
 const emit = defineEmits(['update:visible', 'save'])
 
-const defaultForm = () => ({ sku: '', name: '', description: '', unit: '', quantity: 0, reorderLevel: 0 })
+const defaultForm = () => ({ sku: '', name: '', description: '', unit: '', quantity: 0, cost: 0, reorderLevel: 0 })
 const form = ref(defaultForm())
 
 const visible = computed({
@@ -53,6 +63,14 @@ const visible = computed({
 })
 
 const isEdit = computed(() => !!props.product)
+
+// Live total: recomputes whenever cost or quantity changes
+const costTotal = computed(() => (Number(form.value.cost) || 0) * (Number(form.value.quantity) || 0))
+
+function formatMoney(value) {
+  const num = Number(value || 0)
+  return num.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+}
 
 watch(() => props.product, (p) => {
   if (p) form.value = { ...p }
@@ -70,4 +88,5 @@ function submit() {
 .field-row { display: flex; gap: 1rem; }
 .field-row .field { flex: 1; }
 .w-full { width: 100%; }
-</style>
+.cost-total { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; padding: 0.6rem 0.8rem; background: var(--surface-100, #f1f5f9); border-radius: 6px; font-size: 0.9rem; }
+.cost-total strong { color: var(--primary-color, #2563eb); }</style>
