@@ -13,8 +13,8 @@
                paginator :rows="10" :rowsPerPageOptions="[10, 20, 50, 100]"
                currentPageReportTemplate="Showing {first} to {last} of {totalRecords}"
                paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown">
-      <Column field="sku" header="SKU" style="width: 120px"></Column>
-      <Column field="name" header="Name"></Column>
+      <Column field="sku" header="SKU" style="width: 120px" sortable></Column>
+      <Column field="name" header="Name" sortable></Column>
       <Column field="unit" header="Unit" style="width: 80px"></Column>
       <Column field="quantity" header="Qty" style="width: 80px">
         <template #body="slotProps">
