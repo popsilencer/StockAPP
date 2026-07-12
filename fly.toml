@@ -1,23 +1,28 @@
-app = "stockapp-tm3ypw"
-primary_region = "sin"
+# fly.toml app configuration file generated for stockapp-tm3ypw on 2026-07-10T17:58:25Z
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'stockapp-tm3ypw'
+primary_region = 'sin'
 
 [build]
-  dockerfile = "Dockerfile"
+  dockerfile = 'Dockerfile'
 
 [env]
-  LITEDB_PATH = "/app/data/stock.db"
+  LITEDB_PATH = '/app/data/stock.db'
+
+[[mounts]]
+  source = 'stock_data'
+  destination = '/app/data'
 
 [http_service]
   internal_port = 8080
   force_https = true
-  auto_stop_machines = true
+  auto_stop_machines = 'stop'
   auto_start_machines = true
   min_machines_running = 0
 
 [[vm]]
-  size = "shared-cpu-1x"
-  memory = "512mb"
-
-[[mounts]]
-  source = "stock_data"
-  destination = "/app/data"
+  size = 'shared-cpu-1x'
+  memory = '512mb'
