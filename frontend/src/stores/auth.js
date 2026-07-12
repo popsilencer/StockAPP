@@ -19,7 +19,7 @@ export const useAuthStore = defineStore('auth', () => {
       username.value = usernameInput
       localStorage.setItem('token', data.token)
       localStorage.setItem('username', usernameInput)
-      router.push('/withdraw')
+      router.push('/dashboard')
       toast.add({ severity: 'success', summary: 'Login successful', life: 3000 })
     } catch (err) {
       toast.add({ severity: 'error', summary: 'Login failed', detail: 'Invalid username or password', life: 3000 })
