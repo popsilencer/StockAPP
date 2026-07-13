@@ -22,13 +22,23 @@
                :severity="slotProps.data.quantity <= slotProps.data.reorderLevel ? 'danger' : 'success'" />
         </template>
       </Column>
-      <Column field="reorderLevel" header="Reorder" style="width: 100px"></Column>
-      <Column field="cost" header="Cost/Unit" style="width: 120px">
+      <Column field="reorderLevel" header="Reorder" style="width: 100px" :bodyStyle="{ textAlign: 'right' }"></Column>
+      <Column field="cost" header="Cost/Unit" style="width: 120px" :bodyStyle="{ textAlign: 'right' }">
         <template #body="slotProps">
           {{ formatMoney(slotProps.data.cost) }}
         </template>
       </Column>
-      <Column field="costTotal" header="Cost Total" style="width: 140px">
+      <Column field="price" header="Price/Unit" style="width: 120px" :bodyStyle="{ textAlign: 'right' }">
+        <template #body="slotProps">
+          {{ formatMoney(slotProps.data.price) }}
+        </template>
+      </Column>
+      <Column field="profit" header="Profit/Unit" style="width: 120px" :bodyStyle="{ textAlign: 'right' }">
+        <template #body="slotProps">
+          <strong :class="{ 'profit-neg': slotProps.data.profit < 0 }">{{ formatMoney(slotProps.data.profit) }}</strong>
+        </template>
+      </Column>
+      <Column field="costTotal" header="Cost Total" style="width: 140px" :bodyStyle="{ textAlign: 'right' }">
         <template #body="slotProps">
           <strong>{{ formatMoney(slotProps.data.costTotal) }}</strong>
         </template>
@@ -169,4 +179,5 @@ async function handleDelete() {
 
 <style scoped>
 .products-page { padding: 0; }
+.profit-neg { color: var(--red-500, #ef4444); }
 </style>

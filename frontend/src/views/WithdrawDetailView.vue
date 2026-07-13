@@ -32,8 +32,29 @@
         <DataTable :value="details" tableStyle="min-width: 100%">
           <Column field="sku" header="SKU" style="width: 140px"></Column>
           <Column field="productName" header="Product"></Column>
-          <Column field="inStock" header="In Stock" style="width: 100px"></Column>
-          <Column field="quantity" header="Withdraw Qty" style="width: 120px"></Column>
+          <Column field="inStock" header="In Stock" style="width: 100px" :bodyStyle="{ textAlign: 'right' }"></Column>
+          <Column field="quantity" header="Withdraw Qty" style="width: 120px" :bodyStyle="{ textAlign: 'right' }"></Column>
+          <Column field="cost" header="Cost/Unit" style="width: 120px" :bodyStyle="{ textAlign: 'right' }">
+            <template #body="slotProps">{{ formatMoney(slotProps.data.cost) }}</template>
+          </Column>
+          <Column field="price" header="Price/Unit" style="width: 120px" :bodyStyle="{ textAlign: 'right' }">
+            <template #body="slotProps">{{ formatMoney(slotProps.data.price) }}</template>
+          </Column>
+          <Column field="profit" header="Profit/Unit" style="width: 120px" :bodyStyle="{ textAlign: 'right' }">
+            <template #body="slotProps">
+              <strong :class="{ 'profit-neg': slotProps.data.profit < 0 }">{{ formatMoney(slotProps.data.profit) }}</strong>
+            </template>
+          </Column>
+          <Column field="priceTotal" header="Price Total" style="width: 140px" :bodyStyle="{ textAlign: 'right' }">
+            <template #body="slotProps"><strong>{{ formatMoney(slotProps.data.priceTotal) }}</strong></template>
+            <template #footer>{{ formatMoney(sumPriceTotal) }}</template>
+          </Column>
+          <Column field="profitTotal" header="Profit Total" style="width: 140px" :bodyStyle="{ textAlign: 'right' }">
+            <template #body="slotProps">
+              <strong :class="{ 'profit-neg': slotProps.data.profitTotal < 0 }">{{ formatMoney(slotProps.data.profitTotal) }}</strong>
+            </template>
+            <template #footer>{{ formatMoney(sumProfitTotal) }}</template>
+          </Column>
         </DataTable>
       </div>
 
@@ -84,6 +105,19 @@ const confirmVisible = ref(false)
 const totalQty = computed(() =>
   details.value.reduce((s, i) => s + i.quantity, 0)
 )
+
+const sumPriceTotal = computed(() =>
+  details.value.reduce((s, i) => s + (Number(i.priceTotal) || 0), 0)
+)
+
+const sumProfitTotal = computed(() =>
+  details.value.reduce((s, i) => s + (Number(i.profitTotal) || 0), 0)
+)
+
+function formatMoney(value) {
+  const num = Number(value || 0)
+  return num.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+}
 
 const statusMap = { 0: 'Draft', 1: 'Saved', 2: 'Withdrawn' }
 const severityMap = { 0: 'info', 1: 'success', 2: 'danger' }
@@ -158,4 +192,5 @@ async function processConfirm() {
 .confirm-warn { font-size: 2rem; color: var(--amber-500); flex-shrink: 0; }
 .confirm-body p { margin-bottom: 0.4rem; font-size: 0.9rem; color: var(--gray-700); }
 .warn-text { color: var(--rose-600); font-weight: 600; }
+.profit-neg { color: var(--red-500, #ef4444); }
 </style>

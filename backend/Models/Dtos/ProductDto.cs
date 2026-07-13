@@ -11,5 +11,7 @@ public class ProductDto
     public int Quantity { get; set; }
     [Range(0, double.MaxValue)]
     public decimal Cost { get; set; }
+    [Range(0, double.MaxValue)]
+    public decimal Price { get; set; }
     public int ReorderLevel { get; set; }
 }
