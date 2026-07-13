@@ -1,0 +1,142 @@
+- generic [ref=f77e1035]:
+  - banner [ref=f77e1036]:
+    - generic [ref=f77e1037]:
+      - link [ref=f77e1039] [cursor=pointer]:
+        - /url: /dashboard/popsilencer-gmail-com
+      - navigation [ref=f77e1040]:
+        - generic [ref=f77e1042]:
+          - generic:
+            - term
+            - definition [ref=f77e1044]:
+              - generic [ref=f77e1045]:
+                - heading "Resource Usage" [level=3] [ref=f77e1046]
+                - generic [ref=f77e1048]:
+                  - generic [ref=f77e1049]:
+                    - text: Machines
+                    - generic [ref=f77e1050]:
+                      - generic:
+                        - text: The Machines limit is a fail-safe to prevent runaway creation of machines. If you need this limit increased, please email us at
+                        - link "billing@fly.io":
+                          - /url: mailto:billing@fly.io
+                  - generic [ref=f77e1051]: 0/100
+        - link [ref=f77e1055] [cursor=pointer]:
+          - /url: /dashboard
+        - link [ref=f77e1057] [cursor=pointer]:
+          - /url: https://community.fly.io/c/fresh-produce/27?order=created
+        - generic [ref=f77e1059] [cursor=pointer]:
+          - term [ref=f77e1061]: Resources
+          - definition [ref=f77e1063]:
+            - link [ref=f77e1064]:
+              - /url: https://fly.io/docs/
+            - link [ref=f77e1066]:
+              - /url: https://community.fly.io
+            - link [ref=f77e1068]:
+              - /url: https://fly.io/blog/
+            - link [ref=f77e1070]:
+              - /url: https://fly.io/sprites-blog/
+            - link [ref=f77e1072]:
+              - /url: https://fly.io/toolbox-turnout/
+            - link [ref=f77e1074]:
+              - /url: https://fly.io/phoenix-files/
+            - link [ref=f77e1076]:
+              - /url: https://fly.io/laravel-bytes/
+            - link [ref=f77e1078]:
+              - /url: https://fly.io/ruby-dispatch/
+            - link [ref=f77e1080]:
+              - /url: https://fly.io/django-beats/
+            - link [ref=f77e1082]:
+              - /url: https://fly.io/javascript-journal/
+        - generic [ref=f77e1084] [cursor=pointer]:
+          - term [ref=f77e1086]: Account
+          - definition [ref=f77e1088]:
+            - generic [ref=f77e1089]:
+              - generic [ref=f77e1090]: Signed in as
+              - generic [ref=f77e1091]: popsilencer@gmail.com
+            - separator [ref=f77e1092]
+            - link [ref=f77e1093]:
+              - /url: /user/settings
+            - link [ref=f77e1095]:
+              - /url: /organizations
+            - link [ref=f77e1097]:
+              - /url: /tokens
+            - link [ref=f77e1099]:
+              - /url: /app/sign-out
+  - generic [ref=f77e1101]:
+    - navigation [ref=f77e1102]:
+      - link "Overview" [ref=f77e1103] [cursor=pointer]:
+        - /url: /apps/stockapp-tm3ypw
+      - link "fly.toml" [ref=f77e1106] [cursor=pointer]:
+        - /url: /apps/stockapp-tm3ypw/configuration
+      - link "Machines" [ref=f77e1109] [cursor=pointer]:
+        - /url: /apps/stockapp-tm3ypw/machines
+      - link "Volumes" [ref=f77e1112] [cursor=pointer]:
+        - /url: /apps/stockapp-tm3ypw/volumes
+      - link "Activity" [ref=f77e1115] [cursor=pointer]:
+        - /url: /apps/stockapp-tm3ypw/activity
+      - link "Metrics" [ref=f77e1118] [cursor=pointer]:
+        - /url: /apps/stockapp-tm3ypw/metrics
+      - link "Logs & Errors" [ref=f77e1121] [cursor=pointer]:
+        - /url: /apps/stockapp-tm3ypw/monitoring
+      - link "Certificates" [ref=f77e1124] [cursor=pointer]:
+        - /url: /apps/stockapp-tm3ypw/certificates
+      - link "Registry" [ref=f77e1127] [cursor=pointer]:
+        - /url: /apps/stockapp-tm3ypw/registry
+      - link "Secrets" [ref=f77e1130] [cursor=pointer]:
+        - /url: /apps/stockapp-tm3ypw/secrets
+      - link "Tokens" [ref=f77e1133] [cursor=pointer]:
+        - /url: /apps/stockapp-tm3ypw/tokens
+      - link "Settings" [ref=f77e1136] [cursor=pointer]:
+        - /url: /apps/stockapp-tm3ypw/settings
+    - generic [ref=f77e1144]:
+      - generic [ref=f77e1145]:
+        - generic [ref=f77e1146]:
+          - heading "Deployment" [level=2] [ref=f77e1147]
+          - paragraph
+          - generic [ref=f77e1148]:
+            - generic [ref=f77e1149]: Building image
+            - generic [ref=f77e1150]: Running for 1m2s
+          - paragraph
+        - generic [ref=f77e1152]:
+          - button "Navigation" [ref=f77e1155] [cursor=pointer]
+          - button "Cancel" [ref=f77e1161] [cursor=pointer]
+      - generic [ref=f77e1163]:
+        - term
+        - definition [ref=f77e1164]:
+          - link [ref=f77e1229] [cursor=pointer]:
+            - /url: https://github.com/popsilencer/StockAPP/commit/0fe28f1f481069adfa3eed44a552f5a0524f84d7
+            - generic [ref=f77e1170]:
+              - paragraph [ref=f77e1171]: feat-add-complete-deployment-config-for-Fly.io-with-all-new-f
+              - paragraph [ref=f77e1172]:
+                - code [ref=f77e1173]: 0fe28f1
+                - text: on 0fe28f1f481069adfa3eed44a552f5a0524f84d7 by popsilencer
+          - list [ref=f77e1174]:
+            - listitem [ref=f77e1187]:
+              - alert [ref=f77e1189]:
+                - heading "Start deployer machine" [level=3] [ref=f77e1230]
+            - listitem [ref=f77e1199]:
+              - alert [ref=f77e1201] [cursor=pointer]:
+                - heading "Setup and pull from git repository" [level=3] [ref=f77e1232]
+            - listitem [ref=f77e1205]:
+              - alert [ref=f77e1207] [cursor=pointer]:
+                - heading "Prepare deployment plan" [level=3] [ref=f77e1236]
+            - listitem [ref=f77e1239]:
+              - alert [ref=f77e1241] [cursor=pointer]:
+                - heading "Generate requirements for build" [level=3] [ref=f77e1244]
+            - listitem [ref=f77e1211]:
+              - alert [ref=f77e1213] [cursor=pointer]:
+                - generic [ref=f77e1214]:
+                  - heading "Build image" [level=3] [ref=f77e1248]
+                  - button [ref=f77e1250]
+            - listitem [ref=f77e1220]:
+              - alert [ref=f77e1222] [cursor=pointer]:
+                - generic [ref=f77e1223]:
+                  - heading "Deploy application" [level=3] [ref=f77e1254]
+                  - button [ref=f77e1256]
+            - listitem [ref=f77e1259]:
+              - alert [ref=f77e1261] [cursor=pointer]:
+                - heading "Create Fly.io git branch with new files" [level=3] [ref=f77e1264]
+  - alert
+  - alert
+  - alert
+  - alert
+  - alert

@@ -1,0 +1,88 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - button "" [ref=e6] [cursor=pointer]
+      - heading "Popsilencer Stock APP" [level=1] [ref=e8]
+    - generic [ref=e9]:
+      - generic [ref=e10] [cursor=pointer]:
+        - generic [ref=e11]: 
+        - generic [ref=e12]: admin
+        - generic [ref=e13]: admin
+        - generic [ref=e15]: 
+      - button " Logout" [ref=e16] [cursor=pointer]:
+        - generic [ref=e17]: 
+        - generic [ref=e18]: Logout
+  - complementary [ref=e19]:
+    - navigation [ref=e20]:
+      - link " Dashboard" [ref=e21] [cursor=pointer]:
+        - /url: /dashboard
+        - generic [ref=e22]: 
+        - generic [ref=e23]: Dashboard
+      - link " Withdraw" [ref=e24] [cursor=pointer]:
+        - /url: /withdraw
+        - generic [ref=e25]: 
+        - generic [ref=e26]: Withdraw
+      - link " Products" [ref=e27] [cursor=pointer]:
+        - /url: /products
+        - generic [ref=e28]: 
+        - generic [ref=e29]: Products
+      - link " Movements" [ref=e30] [cursor=pointer]:
+        - /url: /movements
+        - generic [ref=e31]: 
+        - generic [ref=e32]: Movements
+      - link " Company" [ref=e33] [cursor=pointer]:
+        - /url: /companies
+        - generic [ref=e34]: 
+        - generic [ref=e35]: Company
+      - link " User" [ref=e36] [cursor=pointer]:
+        - /url: /users
+        - generic [ref=e37]: 
+        - generic [ref=e38]: User
+  - main [ref=e39]:
+    - generic [ref=e40]:
+      - heading "Dashboard" [level=2] [ref=e42]
+      - generic [ref=e43]:
+        - generic [ref=e44]:
+          - generic [ref=e45]: 
+          - generic [ref=e47]:
+            - generic [ref=e48]: Total Stock Cost (Σ cost × qty)
+            - generic [ref=e49]: "0.00"
+        - generic [ref=e50]:
+          - generic [ref=e51]: 
+          - generic [ref=e53]:
+            - generic [ref=e54]: Products
+            - generic [ref=e55]: "0"
+        - generic [ref=e56]:
+          - generic [ref=e57]: 
+          - generic [ref=e59]:
+            - generic [ref=e60]: Low Stock Items
+            - generic [ref=e61]: "0"
+      - generic [ref=e62]:
+        - generic [ref=e63]:
+          - heading " Low Stock" [level=3] [ref=e64]:
+            - generic [ref=e65]: 
+            - text: Low Stock
+          - generic [ref=e66]: 0 item(s) at or below reorder level
+        - generic [ref=e67]: No low stock items 🎉
+      - generic [ref=e68]:
+        - generic [ref=e69]:
+          - heading " Withdrawals" [level=3] [ref=e70]:
+            - generic [ref=e71]: 
+            - text: Withdrawals
+          - generic [ref=e72]: 0 record(s) · Net 0.00 · Profit 0.00
+        - generic [ref=e73]:
+          - generic [ref=e74]:
+            - generic [ref=e75]: From
+            - generic [ref=e76]:
+              - combobox "Start date" [ref=e77]
+              - button "Choose Date" [ref=e78] [cursor=pointer]
+          - generic [ref=e81]:
+            - generic [ref=e82]: To
+            - generic [ref=e83]:
+              - combobox "End date" [ref=e84]
+              - button "Choose Date" [ref=e85] [cursor=pointer]
+          - generic [ref=e88]:
+            - generic [ref=e89]: Search
+            - textbox "Withdraw No or Note..." [ref=e90]
+          - button "Reset" [ref=e91] [cursor=pointer]
+        - generic [ref=e93]: No withdrawals in this period.

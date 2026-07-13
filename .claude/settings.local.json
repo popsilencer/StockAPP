@@ -26,7 +26,8 @@
       "Bash(npx vite *)",
       "Bash(dotnet build *)",
       "Bash(curl *)",
-      "mcp__plugin_playwright_playwright__browser_click"
+      "mcp__plugin_playwright_playwright__browser_click",
+      "Read(//tmp/**)"
     ]
   }
 }

@@ -1,0 +1,362 @@
+- generic [ref=f77e549]:
+  - banner [ref=f77e550]:
+    - generic [ref=f77e551]:
+      - link [ref=f77e553] [cursor=pointer]:
+        - /url: /dashboard/popsilencer-gmail-com
+      - navigation [ref=f77e554]:
+        - generic [ref=f77e556]:
+          - generic:
+            - term
+            - definition [ref=f77e558]:
+              - generic [ref=f77e559]:
+                - heading "Resource Usage" [level=3] [ref=f77e560]
+                - generic [ref=f77e562]:
+                  - generic [ref=f77e563]:
+                    - text: Machines
+                    - generic [ref=f77e564]:
+                      - generic:
+                        - text: The Machines limit is a fail-safe to prevent runaway creation of machines. If you need this limit increased, please email us at
+                        - link "billing@fly.io":
+                          - /url: mailto:billing@fly.io
+                  - generic [ref=f77e565]: 0/100
+        - link [ref=f77e569] [cursor=pointer]:
+          - /url: /dashboard
+        - link [ref=f77e571] [cursor=pointer]:
+          - /url: https://community.fly.io/c/fresh-produce/27?order=created
+        - generic [ref=f77e573] [cursor=pointer]:
+          - term [ref=f77e575]: Resources
+          - definition [ref=f77e577]:
+            - link [ref=f77e578]:
+              - /url: https://fly.io/docs/
+            - link [ref=f77e580]:
+              - /url: https://community.fly.io
+            - link [ref=f77e582]:
+              - /url: https://fly.io/blog/
+            - link [ref=f77e584]:
+              - /url: https://fly.io/sprites-blog/
+            - link [ref=f77e586]:
+              - /url: https://fly.io/toolbox-turnout/
+            - link [ref=f77e588]:
+              - /url: https://fly.io/phoenix-files/
+            - link [ref=f77e590]:
+              - /url: https://fly.io/laravel-bytes/
+            - link [ref=f77e592]:
+              - /url: https://fly.io/ruby-dispatch/
+            - link [ref=f77e594]:
+              - /url: https://fly.io/django-beats/
+            - link [ref=f77e596]:
+              - /url: https://fly.io/javascript-journal/
+        - generic [ref=f77e598] [cursor=pointer]:
+          - term [ref=f77e600]: Account
+          - definition [ref=f77e602]:
+            - generic [ref=f77e603]:
+              - generic [ref=f77e604]: Signed in as
+              - generic [ref=f77e605]: popsilencer@gmail.com
+            - separator [ref=f77e606]
+            - link [ref=f77e607]:
+              - /url: /user/settings
+            - link [ref=f77e609]:
+              - /url: /organizations
+            - link [ref=f77e611]:
+              - /url: /tokens
+            - link [ref=f77e613]:
+              - /url: /app/sign-out
+  - generic [ref=f77e634]:
+    - navigation [ref=f77e635]:
+      - link "Overview" [ref=f77e636] [cursor=pointer]:
+        - /url: /apps/stockapp-tm3ypw
+      - link "fly.toml" [ref=f77e639] [cursor=pointer]:
+        - /url: /apps/stockapp-tm3ypw/configuration
+      - link "Machines" [ref=f77e642] [cursor=pointer]:
+        - /url: /apps/stockapp-tm3ypw/machines
+      - link "Volumes" [ref=f77e645] [cursor=pointer]:
+        - /url: /apps/stockapp-tm3ypw/volumes
+      - link "Activity" [ref=f77e649] [cursor=pointer]:
+        - /url: /apps/stockapp-tm3ypw/activity
+      - link "Metrics" [ref=f77e652] [cursor=pointer]:
+        - /url: /apps/stockapp-tm3ypw/metrics
+      - link "Logs & Errors" [ref=f77e655] [cursor=pointer]:
+        - /url: /apps/stockapp-tm3ypw/monitoring
+      - link "Certificates" [ref=f77e659] [cursor=pointer]:
+        - /url: /apps/stockapp-tm3ypw/certificates
+      - link "Registry" [ref=f77e662] [cursor=pointer]:
+        - /url: /apps/stockapp-tm3ypw/registry
+      - link "Secrets" [ref=f77e665] [cursor=pointer]:
+        - /url: /apps/stockapp-tm3ypw/secrets
+      - link "Tokens" [ref=f77e669] [cursor=pointer]:
+        - /url: /apps/stockapp-tm3ypw/tokens
+      - link "Settings" [ref=f77e672] [cursor=pointer]:
+        - /url: /apps/stockapp-tm3ypw/settings
+    - generic [ref=f77e678]:
+      - generic [ref=f77e680]:
+        - generic [ref=f77e681]:
+          - generic [ref=f77e682]:
+            - heading "Deployment" [level=2] [ref=f77e683]
+            - paragraph
+            - generic [ref=f77e684]:
+              - generic [ref=f77e685]: Failed
+              - generic [ref=f77e686]:
+                - generic [ref=f77e765]:
+                  - time [ref=f77e766]: less than a minute ago
+                  - generic: Jul 10, 2026 17:55 UTC
+                - text: (took 83s)
+            - paragraph
+          - button "Navigation" [ref=f77e691] [cursor=pointer]
+        - generic [ref=f77e699]:
+          - term
+          - definition [ref=f77e700]:
+            - link [ref=f77e767] [cursor=pointer]:
+              - /url: https://github.com/popsilencer/StockAPP/commit/0c0fef3debe737ac740f2a9ddaba72a39a428a20
+              - generic [ref=f77e706]:
+                - paragraph [ref=f77e707]: Merge-pull-request-1-from-popsilencer-flyio-new-files
+                - paragraph [ref=f77e708]:
+                  - code [ref=f77e709]: 0c0fef3
+                  - text: on 0c0fef3debe737ac740f2a9ddaba72a39a428a20 by popsilencer
+            - list [ref=f77e710]:
+              - listitem [ref=f77e723]:
+                - alert [ref=f77e725]:
+                  - heading "Start deployer machine" [level=3] [ref=f77e769]
+              - listitem [ref=f77e735]:
+                - alert [ref=f77e737] [cursor=pointer]:
+                  - heading "Setup and pull from git repository" [level=3] [ref=f77e771]
+              - listitem [ref=f77e741]:
+                - alert [ref=f77e743] [cursor=pointer]:
+                  - heading "Prepare deployment plan" [level=3] [ref=f77e775]
+              - listitem [ref=f77e778]:
+                - alert [ref=f77e780] [cursor=pointer]:
+                  - heading "Generate requirements for build" [level=3] [ref=f77e783]
+              - listitem [ref=f77e747]:
+                - generic [ref=f77e748]:
+                  - alert [ref=f77e749] [cursor=pointer]:
+                    - generic [ref=f77e750]:
+                      - heading "Build image" [level=3] [ref=f77e787]
+                      - button [ref=f77e789]
+                  - generic [ref=f77e792]:
+                    - paragraph [ref=f77e793]: flyctl deploy --build-only --push -a stockapp-tm3ypw --image-label deployment-affc8b18fefab43147ffcd4f8ffd77b2 --config fly.toml
+                    - paragraph [ref=f77e794]: ==> Verifying app config
+                    - paragraph [ref=f77e795]: "--> Verified app config"
+                    - paragraph [ref=f77e796]: Validating fly.toml
+                    - paragraph [ref=f77e797]:
+                      - generic [ref=f77e798]: ✓ Configuration is valid
+                    - paragraph [ref=f77e799]: ==> Building image
+                    - paragraph [ref=f77e800]: Waiting for depot builder...
+                    - paragraph [ref=f77e801]
+                    - paragraph [ref=f77e802]: ==> Building image with Depot
+                    - paragraph [ref=f77e803]: "--> build: ()"
+                    - paragraph [ref=f77e804]: "#1 [internal] load build definition from Dockerfile"
+                    - paragraph [ref=f77e805]: "#1 transferring dockerfile: 863B 0.0s done"
+                    - paragraph [ref=f77e806]: "#1 DONE 0.0s"
+                    - paragraph [ref=f77e807]
+                    - paragraph [ref=f77e808]: "#2 [internal] load metadata for mcr.microsoft.com/dotnet/aspnet:9.0"
+                    - paragraph [ref=f77e809]: "#2 DONE 0.1s"
+                    - paragraph [ref=f77e810]
+                    - paragraph [ref=f77e811]: "#3 [internal] load metadata for mcr.microsoft.com/dotnet/sdk:9.0"
+                    - paragraph [ref=f77e812]: "#3 DONE 0.1s"
+                    - paragraph [ref=f77e813]
+                    - paragraph [ref=f77e814]: "#4 [internal] load metadata for docker.io/library/node:20-alpine"
+                    - paragraph [ref=f77e815]: "#4 DONE 0.2s"
+                    - paragraph [ref=f77e816]
+                    - paragraph [ref=f77e817]: "#5 [internal] load .dockerignore"
+                    - paragraph [ref=f77e818]: "#5 transferring context: 218B done"
+                    - paragraph [ref=f77e819]: "#5 DONE 0.0s"
+                    - paragraph [ref=f77e820]
+                    - paragraph [ref=f77e821]: "#6 [stage-2 1/4] FROM mcr.microsoft.com/dotnet/aspnet:9.0@sha256:193650562ae3ccfcdbb00a6bccbef2ef5bd71d4ceb25e971475ae4c0a23271fd"
+                    - paragraph [ref=f77e822]: "#6 resolve mcr.microsoft.com/dotnet/aspnet:9.0@sha256:193650562ae3ccfcdbb00a6bccbef2ef5bd71d4ceb25e971475ae4c0a23271fd done"
+                    - paragraph [ref=f77e823]: "#6 DONE 0.0s"
+                    - paragraph [ref=f77e824]
+                    - paragraph [ref=f77e825]: "#7 [stage-2 2/4] WORKDIR /app"
+                    - paragraph [ref=f77e826]: "#7 CACHED"
+                    - paragraph [ref=f77e827]
+                    - paragraph [ref=f77e828]: "#8 [frontend-build 1/6] FROM docker.io/library/node:20-alpine@sha256:fb4cd12c85ee03686f6af5362a0b0d56d50c58a04632e6c0fb8363f609372293"
+                    - paragraph [ref=f77e829]: "#8 resolve docker.io/library/node:20-alpine@sha256:fb4cd12c85ee03686f6af5362a0b0d56d50c58a04632e6c0fb8363f609372293 done"
+                    - paragraph [ref=f77e830]: "#8 DONE 0.0s"
+                    - paragraph [ref=f77e831]
+                    - paragraph [ref=f77e832]: "#9 [backend-build 1/6] FROM mcr.microsoft.com/dotnet/sdk:9.0@sha256:24fe7c00719afc72e2b67cace264dea2ee39ae45f5b553bd59493fe3ddfc920f"
+                    - paragraph [ref=f77e833]: "#9 resolve mcr.microsoft.com/dotnet/sdk:9.0@sha256:24fe7c00719afc72e2b67cace264dea2ee39ae45f5b553bd59493fe3ddfc920f done"
+                    - paragraph [ref=f77e834]: "#9 DONE 0.0s"
+                    - paragraph [ref=f77e835]
+                    - paragraph [ref=f77e836]: "#10 [internal] load build context"
+                    - paragraph [ref=f77e837]: "#10 transferring context: 151.52kB 0.0s done"
+                    - paragraph [ref=f77e838]: "#10 DONE 0.0s"
+                    - paragraph [ref=f77e839]
+                    - paragraph [ref=f77e840]: "#11 [backend-build 2/6] WORKDIR /app/backend"
+                    - paragraph [ref=f77e841]: "#11 CACHED"
+                    - paragraph [ref=f77e842]
+                    - paragraph [ref=f77e843]: "#12 [backend-build 3/6] COPY backend/StockApp.csproj ./"
+                    - paragraph [ref=f77e844]: "#12 CACHED"
+                    - paragraph [ref=f77e845]
+                    - paragraph [ref=f77e846]: "#13 [backend-build 4/6] RUN dotnet restore"
+                    - paragraph [ref=f77e847]: "#13 CACHED"
+                    - paragraph [ref=f77e848]
+                    - paragraph [ref=f77e849]: "#14 [backend-build 5/6] COPY backend/ ./"
+                    - paragraph [ref=f77e850]: "#14 CACHED"
+                    - paragraph [ref=f77e851]
+                    - paragraph [ref=f77e852]: "#15 [frontend-build 2/6] WORKDIR /app/frontend"
+                    - paragraph [ref=f77e853]: "#15 CACHED"
+                    - paragraph [ref=f77e854]
+                    - paragraph [ref=f77e855]: "#16 [frontend-build 4/6] RUN npm ci"
+                    - paragraph [ref=f77e856]: "#16 CACHED"
+                    - paragraph [ref=f77e857]
+                    - paragraph [ref=f77e858]: "#17 [frontend-build 5/6] COPY frontend/ ./"
+                    - paragraph [ref=f77e859]: "#17 CACHED"
+                    - paragraph [ref=f77e860]
+                    - paragraph [ref=f77e861]: "#18 [frontend-build 3/6] COPY frontend/package.json frontend/package-lock.json ./"
+                    - paragraph [ref=f77e862]: "#18 CACHED"
+                    - paragraph [ref=f77e863]
+                    - paragraph [ref=f77e864]: "#19 [frontend-build 6/6] RUN npm run build"
+                    - paragraph [ref=f77e865]: "#19 CACHED"
+                    - paragraph [ref=f77e866]
+                    - paragraph [ref=f77e867]: "#20 [backend-build 6/6] RUN dotnet publish -c Release -o /app/publish"
+                    - paragraph [ref=f77e868]: "#20 1.715 Determining projects to restore..."
+                    - paragraph [ref=f77e869]: "#20 2.351 All projects are up-to-date for restore."
+                    - paragraph [ref=f77e870]: "#20 7.076 /app/backend/Program.cs(70,28): error CS0246: The type or namespace name 'WithdrawDetailRepository' could not be found (are you missing a using directive or an assembly reference?) [/app/backend/StockApp.csproj]"
+                    - paragraph [ref=f77e871]: "#20 7.076 /app/backend/Program.cs(71,28): error CS0246: The type or namespace name 'CompanyRepository' could not be found (are you missing a using directive or an assembly reference?) [/app/backend/StockApp.csproj]"
+                    - paragraph [ref=f77e872]: "#20 7.077 /app/backend/Program.cs(77,28): error CS0246: The type or namespace name 'CompanyService' could not be found (are you missing a using directive or an assembly reference?) [/app/backend/StockApp.csproj]"
+                    - paragraph [ref=f77e873]: "#20 7.077 /app/backend/Program.cs(78,28): error CS0246: The type or namespace name 'UserService' could not be found (are you missing a using directive or an assembly reference?) [/app/backend/StockApp.csproj]"
+                    - paragraph [ref=f77e874]: "#20 7.077 /app/backend/Program.cs(79,28): error CS0246: The type or namespace name 'CompanyContext' could not be found (are you missing a using directive or an assembly reference?) [/app/backend/StockApp.csproj]"
+                    - paragraph [ref=f77e875]: "#20 7.077 /app/backend/Program.cs(100,18): error CS1061: 'UserRepository' does not contain a definition for 'Update' and no accessible extension method 'Update' accepting a first argument of type 'UserRepository' could be found (are you missing a using directive or an assembly reference?) [/app/backend/StockApp.csproj]"
+                    - paragraph [ref=f77e876]: "#20 ERROR: process \"/bin/sh -c dotnet publish -c Release -o /app/publish\" did not complete successfully: exit code: 1"
+                    - paragraph [ref=f77e877]: "------"
+                    - paragraph [ref=f77e878]: "> [backend-build 6/6] RUN dotnet publish -c Release -o /app/publish:"
+                    - paragraph [ref=f77e879]: 1.715 Determining projects to restore...
+                    - paragraph [ref=f77e880]: 2.351 All projects are up-to-date for restore.
+                    - paragraph [ref=f77e881]: "7.076 /app/backend/Program.cs(70,28): error CS0246: The type or namespace name 'WithdrawDetailRepository' could not be found (are you missing a using directive or an assembly reference?) [/app/backend/StockApp.csproj]"
+                    - paragraph [ref=f77e882]: "7.076 /app/backend/Program.cs(71,28): error CS0246: The type or namespace name 'CompanyRepository' could not be found (are you missing a using directive or an assembly reference?) [/app/backend/StockApp.csproj]"
+                    - paragraph [ref=f77e883]: "7.077 /app/backend/Program.cs(77,28): error CS0246: The type or namespace name 'CompanyService' could not be found (are you missing a using directive or an assembly reference?) [/app/backend/StockApp.csproj]"
+                    - paragraph [ref=f77e884]: "7.077 /app/backend/Program.cs(78,28): error CS0246: The type or namespace name 'UserService' could not be found (are you missing a using directive or an assembly reference?) [/app/backend/StockApp.csproj]"
+                    - paragraph [ref=f77e885]: "7.077 /app/backend/Program.cs(79,28): error CS0246: The type or namespace name 'CompanyContext' could not be found (are you missing a using directive or an assembly reference?) [/app/backend/StockApp.csproj]"
+                    - paragraph [ref=f77e886]: "7.077 /app/backend/Program.cs(100,18): error CS1061: 'UserRepository' does not contain a definition for 'Update' and no accessible extension method 'Update' accepting a first argument of type 'UserRepository' could be found (are you missing a using directive or an assembly reference?) [/app/backend/StockApp.csproj]"
+                    - paragraph [ref=f77e887]: "------"
+                    - paragraph [ref=f77e888]: ==> Building image
+                    - paragraph [ref=f77e889]: Waiting for depot builder...
+                    - paragraph [ref=f77e890]
+                    - paragraph [ref=f77e891]: ==> Building image with Depot
+                    - paragraph [ref=f77e892]: "--> build: ()"
+                    - paragraph [ref=f77e893]: "#1 [internal] load build definition from Dockerfile"
+                    - paragraph [ref=f77e894]: "#1 transferring dockerfile: 863B 0.0s done"
+                    - paragraph [ref=f77e895]: "#1 DONE 0.0s"
+                    - paragraph [ref=f77e896]
+                    - paragraph [ref=f77e897]: "#2 [internal] load metadata for mcr.microsoft.com/dotnet/aspnet:9.0"
+                    - paragraph [ref=f77e898]: "#2 DONE 0.0s"
+                    - paragraph [ref=f77e899]
+                    - paragraph [ref=f77e900]: "#3 [internal] load metadata for mcr.microsoft.com/dotnet/sdk:9.0"
+                    - paragraph [ref=f77e901]: "#3 DONE 0.0s"
+                    - paragraph [ref=f77e902]
+                    - paragraph [ref=f77e903]: "#4 [internal] load metadata for docker.io/library/node:20-alpine"
+                    - paragraph [ref=f77e904]: "#4 DONE 0.2s"
+                    - paragraph [ref=f77e905]
+                    - paragraph [ref=f77e906]: "#5 [internal] load .dockerignore"
+                    - paragraph [ref=f77e907]: "#5 transferring context: 218B 0.0s done"
+                    - paragraph [ref=f77e908]: "#5 DONE 0.0s"
+                    - paragraph [ref=f77e909]
+                    - paragraph [ref=f77e910]: "#6 [stage-2 1/4] FROM mcr.microsoft.com/dotnet/aspnet:9.0@sha256:193650562ae3ccfcdbb00a6bccbef2ef5bd71d4ceb25e971475ae4c0a23271fd"
+                    - paragraph [ref=f77e911]: "#6 resolve mcr.microsoft.com/dotnet/aspnet:9.0@sha256:193650562ae3ccfcdbb00a6bccbef2ef5bd71d4ceb25e971475ae4c0a23271fd done"
+                    - paragraph [ref=f77e912]: "#6 DONE 0.0s"
+                    - paragraph [ref=f77e913]
+                    - paragraph [ref=f77e914]: "#7 [stage-2 2/4] WORKDIR /app"
+                    - paragraph [ref=f77e915]: "#7 CACHED"
+                    - paragraph [ref=f77e916]
+                    - paragraph [ref=f77e917]: "#8 [backend-build 1/6] FROM mcr.microsoft.com/dotnet/sdk:9.0@sha256:24fe7c00719afc72e2b67cace264dea2ee39ae45f5b553bd59493fe3ddfc920f"
+                    - paragraph [ref=f77e918]: "#8 resolve mcr.microsoft.com/dotnet/sdk:9.0@sha256:24fe7c00719afc72e2b67cace264dea2ee39ae45f5b553bd59493fe3ddfc920f done"
+                    - paragraph [ref=f77e919]: "#8 DONE 0.0s"
+                    - paragraph [ref=f77e920]
+                    - paragraph [ref=f77e921]: "#9 [frontend-build 1/6] FROM docker.io/library/node:20-alpine@sha256:fb4cd12c85ee03686f6af5362a0b0d56d50c58a04632e6c0fb8363f609372293"
+                    - paragraph [ref=f77e922]: "#9 resolve docker.io/library/node:20-alpine@sha256:fb4cd12c85ee03686f6af5362a0b0d56d50c58a04632e6c0fb8363f609372293 done"
+                    - paragraph [ref=f77e923]: "#9 DONE 0.0s"
+                    - paragraph [ref=f77e924]
+                    - paragraph [ref=f77e925]: "#10 [internal] load build context"
+                    - paragraph [ref=f77e926]: "#10 transferring context: 3.12kB 0.0s done"
+                    - paragraph [ref=f77e927]: "#10 DONE 0.0s"
+                    - paragraph [ref=f77e928]
+                    - paragraph [ref=f77e929]: "#11 [backend-build 3/6] COPY backend/StockApp.csproj ./"
+                    - paragraph [ref=f77e930]: "#11 CACHED"
+                    - paragraph [ref=f77e931]
+                    - paragraph [ref=f77e932]: "#12 [backend-build 2/6] WORKDIR /app/backend"
+                    - paragraph [ref=f77e933]: "#12 CACHED"
+                    - paragraph [ref=f77e934]
+                    - paragraph [ref=f77e935]: "#13 [backend-build 4/6] RUN dotnet restore"
+                    - paragraph [ref=f77e936]: "#13 CACHED"
+                    - paragraph [ref=f77e937]
+                    - paragraph [ref=f77e938]: "#14 [frontend-build 3/6] COPY frontend/package.json frontend/package-lock.json ./"
+                    - paragraph [ref=f77e939]: "#14 CACHED"
+                    - paragraph [ref=f77e940]
+                    - paragraph [ref=f77e941]: "#15 [frontend-build 2/6] WORKDIR /app/frontend"
+                    - paragraph [ref=f77e942]: "#15 CACHED"
+                    - paragraph [ref=f77e943]
+                    - paragraph [ref=f77e944]: "#16 [frontend-build 4/6] RUN npm ci"
+                    - paragraph [ref=f77e945]: "#16 CACHED"
+                    - paragraph [ref=f77e946]
+                    - paragraph [ref=f77e947]: "#17 [frontend-build 5/6] COPY frontend/ ./"
+                    - paragraph [ref=f77e948]: "#17 CACHED"
+                    - paragraph [ref=f77e949]
+                    - paragraph [ref=f77e950]: "#18 [backend-build 5/6] COPY backend/ ./"
+                    - paragraph [ref=f77e951]: "#18 CACHED"
+                    - paragraph [ref=f77e952]
+                    - paragraph [ref=f77e953]: "#19 [frontend-build 6/6] RUN npm run build"
+                    - paragraph [ref=f77e954]: "#19 CACHED"
+                    - paragraph [ref=f77e955]
+                    - paragraph [ref=f77e956]: "#20 [backend-build 6/6] RUN dotnet publish -c Release -o /app/publish"
+                    - paragraph [ref=f77e957]: "#20 1.125 Determining projects to restore..."
+                    - paragraph [ref=f77e958]: "#20 1.619 All projects are up-to-date for restore."
+                    - paragraph [ref=f77e959]: "#20 5.268 /app/backend/Program.cs(70,28): error CS0246: The type or namespace name 'WithdrawDetailRepository' could not be found (are you missing a using directive or an assembly reference?) [/app/backend/StockApp.csproj]"
+                    - paragraph [ref=f77e960]: "#20 5.268 /app/backend/Program.cs(71,28): error CS0246: The type or namespace name 'CompanyRepository' could not be found (are you missing a using directive or an assembly reference?) [/app/backend/StockApp.csproj]"
+                    - paragraph [ref=f77e961]: "#20 5.268 /app/backend/Program.cs(77,28): error CS0246: The type or namespace name 'CompanyService' could not be found (are you missing a using directive or an assembly reference?) [/app/backend/StockApp.csproj]"
+                    - paragraph [ref=f77e962]: "#20 5.268 /app/backend/Program.cs(78,28): error CS0246: The type or namespace name 'UserService' could not be found (are you missing a using directive or an assembly reference?) [/app/backend/StockApp.csproj]"
+                    - paragraph [ref=f77e963]: "#20 5.268 /app/backend/Program.cs(79,28): error CS0246: The type or namespace name 'CompanyContext' could not be found (are you missing a using directive or an assembly reference?) [/app/backend/StockApp.csproj]"
+                    - paragraph [ref=f77e964]: "#20 5.268 /app/backend/Program.cs(100,18): error CS1061: 'UserRepository' does not contain a definition for 'Update' and no accessible extension method 'Update' accepting a first argument of type 'UserRepository' could be found (are you missing a using directive or an assembly reference?) [/app/backend/StockApp.csproj]"
+                    - paragraph [ref=f77e965]: "#20 ERROR: process \"/bin/sh -c dotnet publish -c Release -o /app/publish\" did not complete successfully: exit code: 1"
+                    - paragraph [ref=f77e966]: "------"
+                    - paragraph [ref=f77e967]: "> [backend-build 6/6] RUN dotnet publish -c Release -o /app/publish:"
+                    - paragraph [ref=f77e968]: 1.125 Determining projects to restore...
+                    - paragraph [ref=f77e969]: 1.619 All projects are up-to-date for restore.
+                    - paragraph [ref=f77e970]: "5.268 /app/backend/Program.cs(70,28): error CS0246: The type or namespace name 'WithdrawDetailRepository' could not be found (are you missing a using directive or an assembly reference?) [/app/backend/StockApp.csproj]"
+                    - paragraph [ref=f77e971]: "5.268 /app/backend/Program.cs(71,28): error CS0246: The type or namespace name 'CompanyRepository' could not be found (are you missing a using directive or an assembly reference?) [/app/backend/StockApp.csproj]"
+                    - paragraph [ref=f77e972]: "5.268 /app/backend/Program.cs(77,28): error CS0246: The type or namespace name 'CompanyService' could not be found (are you missing a using directive or an assembly reference?) [/app/backend/StockApp.csproj]"
+                    - paragraph [ref=f77e973]: "5.268 /app/backend/Program.cs(78,28): error CS0246: The type or namespace name 'UserService' could not be found (are you missing a using directive or an assembly reference?) [/app/backend/StockApp.csproj]"
+                    - paragraph [ref=f77e974]: "5.268 /app/backend/Program.cs(79,28): error CS0246: The type or namespace name 'CompanyContext' could not be found (are you missing a using directive or an assembly reference?) [/app/backend/StockApp.csproj]"
+                    - paragraph [ref=f77e975]: "5.268 /app/backend/Program.cs(100,18): error CS1061: 'UserRepository' does not contain a definition for 'Update' and no accessible extension method 'Update' accepting a first argument of type 'UserRepository' could be found (are you missing a using directive or an assembly reference?) [/app/backend/StockApp.csproj]"
+                    - paragraph [ref=f77e976]: "------"
+                    - paragraph [ref=f77e977]: "Error: failed to fetch an image or build from source: error building: failed to solve: process \"/bin/sh -c dotnet publish -c Release -o /app/publish\" did not complete successfully: exit code: 1"
+                    - paragraph [ref=f77e978]: Dockerfile failed to build error
+                    - paragraph [ref=f77e979]: unsuccessful command 'flyctl deploy --build-only --push -a stockapp-tm3ypw --image-label deployment-affc8b18fefab43147ffcd4f8ffd77b2 --config fly.toml'
+              - listitem [ref=f77e756]:
+                - alert [ref=f77e758]:
+                  - generic [ref=f77e759]:
+                    - heading "Deploy application" [level=3] [ref=f77e981]
+                    - button [disabled] [ref=f77e983]
+              - listitem [ref=f77e985]:
+                - alert [ref=f77e987] [cursor=pointer]:
+                  - heading "Create Fly.io git branch with new files" [level=3] [ref=f77e990]
+      - generic [ref=f77e994]:
+        - generic [ref=f77e995]:
+          - button "Dockerfile" [ref=f77e996] [cursor=pointer]
+          - button "fly.toml" [ref=f77e997] [cursor=pointer]
+          - button "Use preset Dockerfile" [ref=f77e999] [cursor=pointer]
+        - generic [ref=f77e1002]:
+          - button "Copy" [ref=f77e1004] [cursor=pointer]
+          - textbox [ref=f77e1010]: "# ---- Stage 1: Build Frontend ---- FROM node:20-alpine AS frontend-build WORKDIR /app/frontend COPY frontend/package.json frontend/package-lock.json ./ RUN npm ci COPY frontend/ ./ RUN npm run build # ---- Stage 2: Build Backend ---- FROM mcr.microsoft.com/dotnet/sdk:9.0 AS backend-build WORKDIR /app/backend COPY backend/StockApp.csproj ./ RUN dotnet restore COPY backend/ ./ RUN dotnet publish -c Release -o /app/publish # ---- Stage 3: Runtime ---- FROM mcr.microsoft.com/dotnet/aspnet:9.0 WORKDIR /app # Copy backend COPY --from=backend-build /app/publish . # Copy frontend build output COPY --from=frontend-build /app/frontend/dist ./wwwroot # Persistent volume for LiteDB VOLUME /app/data ENV ASPNETCORE_URLS=http://+:8080 ENV LITEDB_PATH=/app/data/stock.db EXPOSE 8080 ENTRYPOINT [\"dotnet\", \"StockApp.dll\"]"
+        - generic [ref=f77e1011]:
+          - generic [ref=f77e1012]:
+            - button "Copy context" [ref=f77e1013] [cursor=pointer]
+            - generic [ref=f77e1016]: The context for AI can be pasted into any LLM and it will generate a fixed version of the code above.
+          - button "Save and Deploy" [disabled] [ref=f77e1017]
+      - generic [ref=f77e1022]:
+        - heading "Uh oh, deployment failed" [level=2] [ref=f77e1023]
+        - paragraph [ref=f77e1024]:
+          - text: Your repo
+          - code [ref=f77e1025]: Dockerfile
+          - text: build failed. Check out
+          - strong [ref=f77e1026]: logs from the Build Image step
+          - text: to see what went wrong
+          - strong [ref=f77e1027]: or press "Copy question to ask AI" as paste in your favorite LLM to get it fixed.
+        - paragraph [ref=f77e1028]: After writting a fix, you can retry the deployment using the button below.
+        - paragraph [ref=f77e1029]:
+          - text: You can also ask help in our
+          - link "community forum" [ref=f77e1030] [cursor=pointer]:
+            - /url: https://community.fly.io/
+        - button "I've fixed this on GitHub, retry" [active] [ref=f77e1033] [cursor=pointer]
+  - alert
+  - alert
+  - alert
+  - alert
+  - alert

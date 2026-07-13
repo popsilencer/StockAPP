@@ -1,0 +1,44 @@
+- generic [ref=f14e3]:
+  - banner [ref=f14e4]:
+    - generic [ref=f14e5]:
+      - button "" [ref=f14e6] [cursor=pointer]
+      - heading "Popsilencer Stock APP" [level=1] [ref=f14e8]
+    - generic [ref=f14e9]:
+      - generic [ref=f14e10] [cursor=pointer]:
+        - generic [ref=f14e11]: 
+        - generic [ref=f14e12]: admin
+        - generic [ref=f14e13]: admin
+        - generic [ref=f14e15]: 
+      - button " Logout" [ref=f14e16] [cursor=pointer]:
+        - generic [ref=f14e17]: 
+        - generic [ref=f14e18]: Logout
+  - complementary [ref=f14e19]:
+    - navigation [ref=f14e20]:
+      - link " Dashboard" [ref=f14e21] [cursor=pointer]:
+        - /url: /dashboard
+        - generic [ref=f14e22]: 
+        - generic [ref=f14e23]: Dashboard
+      - link " Withdraw" [ref=f14e24] [cursor=pointer]:
+        - /url: /withdraw
+        - generic [ref=f14e25]: 
+        - generic [ref=f14e26]: Withdraw
+      - link " Products" [ref=f14e27] [cursor=pointer]:
+        - /url: /products
+        - generic [ref=f14e28]: 
+        - generic [ref=f14e29]: Products
+      - link " Movements" [ref=f14e30] [cursor=pointer]:
+        - /url: /movements
+        - generic [ref=f14e31]: 
+        - generic [ref=f14e32]: Movements
+      - link " Company" [ref=f14e33] [cursor=pointer]:
+        - /url: /companies
+        - generic [ref=f14e34]: 
+        - generic [ref=f14e35]: Company
+      - link " User" [ref=f14e36] [cursor=pointer]:
+        - /url: /users
+        - generic [ref=f14e37]: 
+        - generic [ref=f14e38]: User
+  - main [ref=f14e39]:
+    - generic [ref=f14e40]:
+      - heading "Dashboard" [level=2] [ref=f14e42]
+      - generic [ref=f14e43]: Loading…
