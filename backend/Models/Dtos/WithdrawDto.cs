@@ -13,4 +13,7 @@ public class WithdrawDto
     public int? CompanyId { get; set; }
     public int ItemCount { get; set; }
     public int TotalQuantity { get; set; }
+    // Aggregated money totals across all detail lines.
+    public decimal TotalPrice { get; set; }
+    public decimal TotalProfit { get; set; }
 }

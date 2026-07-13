@@ -30,6 +30,14 @@
         <Column header="Note">
           <template #body="slotProps">{{ slotProps.data.note || '—' }}</template>
         </Column>
+        <Column header="Net Price" style="width: 140px" :bodyStyle="{ textAlign: 'right' }">
+          <template #body="slotProps"><strong>{{ formatMoney(slotProps.data.totalPrice) }}</strong></template>
+        </Column>
+        <Column header="Net Profit" style="width: 140px" :bodyStyle="{ textAlign: 'right' }">
+          <template #body="slotProps">
+            <strong :class="{ 'profit-neg': slotProps.data.totalProfit < 0 }">{{ formatMoney(slotProps.data.totalProfit) }}</strong>
+          </template>
+        </Column>
         <Column header="Status" style="width: 110px">
           <template #body="slotProps">
             <Tag :value="statusLabel(slotProps.data.status)"
@@ -67,6 +75,11 @@ const severityMap = { Draft: 'info', Saved: 'success', Withdrawn: 'danger' }
 
 function statusLabel(s) { return statusMap[s] ?? '—' }
 function statusSeverity(s) { return severityMap[s] ?? 'secondary' }
+
+function formatMoney(value) {
+  const num = Number(value || 0)
+  return num.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+}
 
 const filteredWithdraws = computed(() => {
   const q = searchTerm.value.trim().toLowerCase()
@@ -119,4 +132,5 @@ async function fetchList() {
 .wd-no { font-weight: 600; color: var(--rose-600); }
 .action-btns { display: flex; gap: 4px; }
 .action-right { justify-content: flex-end; }
+.profit-neg { color: var(--red-500, #ef4444); }
 </style>

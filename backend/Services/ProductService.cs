@@ -37,6 +37,7 @@ public class ProductService
             Unit = dto.Unit,
             Quantity = dto.Quantity,
             Cost = dto.Cost,
+            Price = dto.Price,
             ReorderLevel = dto.ReorderLevel,
             CompanyId = companyId
         };
@@ -77,6 +78,7 @@ public class ProductService
         existing.Unit = dto.Unit;
         existing.Quantity = dto.Quantity;
         existing.Cost = dto.Cost;
+        existing.Price = dto.Price;
         existing.ReorderLevel = dto.ReorderLevel;
         _repo.Update(existing);
         return existing;

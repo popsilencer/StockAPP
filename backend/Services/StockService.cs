@@ -144,7 +144,10 @@ public class StockService
                     Sku = product.Sku,
                     ProductName = product.Name,
                     InStock = product.Quantity,
-                    Quantity = item.Quantity
+                    Quantity = item.Quantity,
+                    Cost = product.Cost,
+                    Price = product.Price,
+                    Profit = product.Profit
                 });
             }
 
@@ -176,6 +179,11 @@ public class StockService
                 if (withdraw.Status == WithdrawStatus.Withdrawn)
                     throw new InvalidOperationException("Cannot modify a withdrawn record");
 
+                // Update editable master fields on existing draft
+                withdraw.Date = request.Date;
+                withdraw.Note = request.Note;
+                _ctx.Withdraws.Update(withdraw);
+
                 _detailRepo.DeleteByWithdrawNo(withdraw.WithdrawNo);
             }
             else
@@ -205,7 +213,10 @@ public class StockService
                     Sku = product.Sku,
                     ProductName = product.Name,
                     InStock = product.Quantity,
-                    Quantity = item.Quantity
+                    Quantity = item.Quantity,
+                    Cost = product.Cost,
+                    Price = product.Price,
+                    Profit = product.Profit
                 });
             }
 
@@ -288,7 +299,9 @@ public class StockService
                     CompanyId = w.CompanyId,
                     CreatedAt = w.CreatedAt,
                     ItemCount = details.Count,
-                    TotalQuantity = details.Sum(d => d.Quantity)
+                    TotalQuantity = details.Sum(d => d.Quantity),
+                    TotalPrice = details.Sum(d => d.PriceTotal),
+                    TotalProfit = details.Sum(d => d.ProfitTotal)
                 };
             })
             .ToList();
@@ -311,7 +324,9 @@ public class StockService
             CompanyId = w.CompanyId,
             CreatedAt = w.CreatedAt,
             ItemCount = details.Count,
-            TotalQuantity = details.Sum(d => d.Quantity)
+            TotalQuantity = details.Sum(d => d.Quantity),
+            TotalPrice = details.Sum(d => d.PriceTotal),
+            TotalProfit = details.Sum(d => d.ProfitTotal)
         };
     }
 

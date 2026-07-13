@@ -29,9 +29,19 @@
           <InputNumber id="cost" v-model="form.cost" class="w-full" mode="decimal" :minFractionDigits="2" :maxFractionDigits="2" :min="0" />
         </div>
         <div class="field">
+          <label for="price">Price (per unit)</label>
+          <InputNumber id="price" v-model="form.price" class="w-full" mode="decimal" :minFractionDigits="2" :maxFractionDigits="2" :min="0" />
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
           <label for="reorder">Reorder Level</label>
           <InputNumber id="reorder" v-model="form.reorderLevel" class="w-full" :min="0" />
         </div>
+      </div>
+      <div class="cost-total">
+        <span>Profit (price − cost):</span>
+        <strong>{{ formatMoney(profit) }}</strong>
       </div>
       <div class="cost-total">
         <span>Cost Total (cost × qty):</span>
@@ -54,7 +64,7 @@ const props = defineProps({
 })
 const emit = defineEmits(['update:visible', 'save'])
 
-const defaultForm = () => ({ sku: '', name: '', description: '', unit: '', quantity: 0, cost: 0, reorderLevel: 0 })
+const defaultForm = () => ({ sku: '', name: '', description: '', unit: '', quantity: 0, cost: 0, price: 0, reorderLevel: 0 })
 const form = ref(defaultForm())
 
 const visible = computed({
@@ -66,6 +76,9 @@ const isEdit = computed(() => !!props.product)
 
 // Live total: recomputes whenever cost or quantity changes
 const costTotal = computed(() => (Number(form.value.cost) || 0) * (Number(form.value.quantity) || 0))
+
+// Live profit: recomputes whenever price or cost changes
+const profit = computed(() => (Number(form.value.price) || 0) - (Number(form.value.cost) || 0))
 
 function formatMoney(value) {
   const num = Number(value || 0)

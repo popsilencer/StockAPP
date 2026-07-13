@@ -60,18 +60,34 @@
           <Column header="Product">
             <template #body="slotProps">{{ slotProps.data.name }}</template>
           </Column>
-          <Column header="In Stock" style="width: 110px">
+          <Column header="In Stock" style="width: 110px" :bodyStyle="{ textAlign: 'right' }">
             <template #body="slotProps">
               <span :class="{ 'low': slotProps.data.inStock <= slotProps.data.reorderLevel }">
                 {{ slotProps.data.inStock }} {{ slotProps.data.unit }}
               </span>
             </template>
           </Column>
-          <Column header="Withdraw Qty" style="width: 140px">
+          <Column header="Withdraw Qty" style="width: 140px" :bodyStyle="{ textAlign: 'right' }">
             <template #body="slotProps">
               <InputNumber v-if="!isView" v-model="slotProps.data.withdrawQty"
                            :min="1" :max="slotProps.data.inStock" size="small" />
               <span v-else>{{ slotProps.data.withdrawQty }}</span>
+            </template>
+          </Column>
+          <Column header="Price/Unit" style="width: 120px" :bodyStyle="{ textAlign: 'right' }">
+            <template #body="slotProps">{{ formatMoney(slotProps.data.price) }}</template>
+          </Column>
+          <Column header="Profit/Unit" style="width: 120px" :bodyStyle="{ textAlign: 'right' }">
+            <template #body="slotProps">
+              <strong :class="{ 'profit-neg': (slotProps.data.profit ?? 0) < 0 }">{{ formatMoney(slotProps.data.profit) }}</strong>
+            </template>
+          </Column>
+          <Column header="Total Price" style="width: 140px" :bodyStyle="{ textAlign: 'right' }">
+            <template #body="slotProps"><strong>{{ formatMoney(priceTotal(slotProps.data)) }}</strong></template>
+          </Column>
+          <Column header="Total Profit" style="width: 140px" :bodyStyle="{ textAlign: 'right' }">
+            <template #body="slotProps">
+              <strong :class="{ 'profit-neg': profitTotal(slotProps.data) < 0 }">{{ formatMoney(profitTotal(slotProps.data)) }}</strong>
             </template>
           </Column>
           <Column header="" style="width: 60px">
@@ -88,6 +104,10 @@
             <span class="summary-value">{{ items.length }}</span>
             <span class="summary-label">Total Qty:</span>
             <span class="summary-value">{{ totalQty }}</span>
+            <span class="summary-label">Net Price:</span>
+            <span class="summary-value">{{ formatMoney(sumPriceTotal) }}</span>
+            <span class="summary-label">Net Profit:</span>
+            <span class="summary-value" :class="{ 'profit-neg': sumProfitTotal < 0 }">{{ formatMoney(sumProfitTotal) }}</span>
           </div>
           <div class="summary-btns" v-if="!isView">
             <Button v-if="!isEdit" label="Save Draft" icon="pi pi-save" severity="secondary" outlined
@@ -163,6 +183,20 @@ const availableProducts = computed(() =>
 
 const totalQty = computed(() => items.value.reduce((sum, i) => sum + (i.withdrawQty || 0), 0))
 
+function priceTotal(i) {
+  return (Number(i.price) || 0) * (Number(i.withdrawQty) || 0)
+}
+function profitTotal(i) {
+  return (Number(i.profit) || 0) * (Number(i.withdrawQty) || 0)
+}
+const sumPriceTotal = computed(() => items.value.reduce((s, i) => s + priceTotal(i), 0))
+const sumProfitTotal = computed(() => items.value.reduce((s, i) => s + profitTotal(i), 0))
+
+function formatMoney(value) {
+  const num = Number(value || 0)
+  return num.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+}
+
 onMounted(async () => {
   await store.fetchAll()
 
@@ -186,7 +220,10 @@ onMounted(async () => {
           quantity: d.inStock,
           reorderLevel: product ? product.reorderLevel : 0,
           unit: product ? product.unit : '',
-          withdrawQty: d.quantity
+          withdrawQty: d.quantity,
+          cost: d.cost ?? (product ? product.cost : 0),
+          price: d.price ?? (product ? product.price : 0),
+          profit: d.profit ?? (product ? product.profit : 0)
         }
       })
     } catch {
@@ -372,4 +409,5 @@ async function processWithdraw() {
 .confirm-body p { margin-bottom: 0.4rem; font-size: 0.9rem; color: var(--gray-700); }
 
 .loading { text-align: center; padding: 2rem; color: var(--gray-400); }
+.profit-neg { color: var(--red-500, #ef4444); }
 </style>
