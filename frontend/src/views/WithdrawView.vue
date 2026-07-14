@@ -276,13 +276,14 @@ function removeItem(index) {
 }
 
 async function saveDraft() {
+  if (processing.value) return
   if (items.value.length === 0) {
     toast.add({ severity: 'warn', summary: 'No items', detail: 'Please add at least one product before saving', life: 3000 })
     return
   }
-  await generateNo()
   processing.value = true
   try {
+    await generateNo()
     const payload = {
       date: withdrawDate.value.toISOString(),
       note: note.value,
@@ -301,6 +302,7 @@ async function saveDraft() {
 }
 
 async function updateDraft() {
+  if (processing.value) return
   processing.value = true
   try {
     const payload = {
@@ -329,9 +331,10 @@ function openConfirm() {
 }
 
 async function processWithdraw() {
-  await generateNo()
+  if (processing.value) return
   processing.value = true
   try {
+    await generateNo()
     let data
     if (isEdit.value) {
       const payload = {
