@@ -44,12 +44,14 @@
                  :severity="statusSeverity(slotProps.data.status)" />
           </template>
         </Column>
-        <Column header="Action" style="width: 120px">
+        <Column header="Action" style="width: 160px">
           <template #body="slotProps">
             <div class="action-btns action-right">
-              <Button v-if="slotProps.data.status !== 'Withdrawn'" icon="pi pi-pencil" severity="info"
+              <Button v-if="slotProps.data.status !== 'Withdrawn' && slotProps.data.status !== 'Cancelled'" icon="pi pi-pencil" severity="info"
                       text rounded size="small" @click="$router.push(`/withdraw/${slotProps.data.withdrawNo}/edit`)"
                       title="Edit" />
+              <Button v-if="slotProps.data.status === 'Withdrawn'" icon="pi pi-undo" severity="warn"
+                      text rounded size="small" @click="confirmCancel(slotProps.data)" title="Cancel" />
               <Button icon="pi pi-eye" severity="info" text rounded size="small"
                       @click="$router.push(`/withdraw/${slotProps.data.withdrawNo}`)" title="View" />
             </div>
@@ -57,6 +59,15 @@
         </Column>
       </DataTable>
     </div>
+
+    <Dialog v-model:visible="cancelVisible" modal header="Confirm Cancel" :style="{ width: '400px' }">
+      <p>Cancel withdraw <strong>{{ cancelling?.withdrawNo }}</strong>?</p>
+      <p>Stock will be returned and status changed to Cancelled. This cannot be undone.</p>
+      <template #footer>
+        <Button label="No" severity="secondary" outlined @click="cancelVisible = false" />
+        <Button label="Cancel Withdraw" icon="pi pi-times" severity="warn" :loading="cancellingNow" @click="doCancel" />
+      </template>
+    </Dialog>
   </div>
 </template>
 
@@ -69,9 +80,12 @@ const toast = useToast()
 const withdraws = ref([])
 const loading = ref(false)
 const searchTerm = ref('')
+const cancelVisible = ref(false)
+const cancelling = ref(null)
+const cancellingNow = ref(false)
 
-const statusMap = { Draft: 'Draft', Saved: 'Saved', Withdrawn: 'Withdrawn' }
-const severityMap = { Draft: 'info', Saved: 'success', Withdrawn: 'danger' }
+const statusMap = { Draft: 'Draft', Saved: 'Saved', Withdrawn: 'Withdrawn', Cancelled: 'Cancelled' }
+const severityMap = { Draft: 'info', Saved: 'success', Withdrawn: 'danger', Cancelled: 'warn' }
 
 function statusLabel(s) { return statusMap[s] ?? '—' }
 function statusSeverity(s) { return severityMap[s] ?? 'secondary' }
@@ -101,6 +115,26 @@ async function fetchList() {
     toast.add({ severity: 'error', summary: 'Error', detail: 'Failed to load withdrawals', life: 3000 })
   } finally {
     loading.value = false
+  }
+}
+
+function confirmCancel(w) {
+  cancelling.value = w
+  cancelVisible.value = true
+}
+
+async function doCancel() {
+  cancellingNow.value = true
+  try {
+    await withdrawsApi.cancel(cancelling.value.withdrawNo)
+    toast.add({ severity: 'success', summary: 'Withdraw cancelled', detail: 'Stock returned', life: 3000 })
+    cancelVisible.value = false
+    await fetchList()
+  } catch (err) {
+    const msg = err.response?.data?.message || 'Failed to cancel withdraw'
+    toast.add({ severity: 'error', summary: 'Error', detail: msg, life: 3000 })
+  } finally {
+    cancellingNow.value = false
   }
 }
 </script>

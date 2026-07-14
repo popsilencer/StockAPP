@@ -62,6 +62,42 @@ public class StockService
         }
     }
 
+    public void DeleteMovement(int movementId, int? companyId)
+    {
+        var movement = _movementRepo.GetById(movementId);
+        if (movement == null)
+            throw new KeyNotFoundException($"Movement {movementId} not found");
+
+        if (companyId.HasValue && movement.CompanyId != companyId.Value)
+            throw new KeyNotFoundException($"Movement {movementId} not found");
+
+        var product = _productRepo.GetById(movement.ProductId);
+        if (product == null)
+            throw new KeyNotFoundException($"Product {movement.ProductId} not found");
+
+        if (companyId.HasValue && product.CompanyId != companyId.Value)
+            throw new KeyNotFoundException($"Product {movement.ProductId} not found");
+
+        _ctx.BeginTransaction();
+        try
+        {
+            // Reverse the stock effect: In added qty, Out subtracted qty.
+            int delta = movement.Type == MovementType.In ? -movement.Quantity : movement.Quantity;
+            int newQty = product.Quantity + delta;
+
+            if (newQty < 0)
+                throw new InvalidOperationException(
+                    $"Cannot delete: result would be negative stock ({newQty} {product.Unit}).");
+
+            product.Quantity = newQty;
+            _productRepo.Update(product);
+            _movementRepo.Delete(movementId);
+
+            _ctx.CommitTransaction();
+        }
+        catch { _ctx.RollbackTransaction(); throw; }
+    }
+
     public IEnumerable<MovementDto> GetMovements(int? productId, int? companyId)
     {
         return _movementRepo.GetAll(productId, companyId).Select(m =>
@@ -269,6 +305,53 @@ public class StockService
             }
 
             withdraw.Status = WithdrawStatus.Withdrawn;
+            _ctx.Withdraws.Update(withdraw);
+
+            _ctx.CommitTransaction();
+            return new WithdrawResult { WithdrawNo = withdraw.WithdrawNo, Date = withdraw.Date, ProcessedCount = details.Count };
+        }
+        catch { _ctx.RollbackTransaction(); throw; }
+    }
+
+    public WithdrawResult CancelWithdraw(string withdrawNo, int? companyId)
+    {
+        var withdraw = _ctx.Withdraws.Query().Where(w => w.WithdrawNo == withdrawNo).FirstOrDefault();
+        if (withdraw == null)
+            throw new KeyNotFoundException($"Withdraw {withdrawNo} not found");
+        if (companyId.HasValue && withdraw.CompanyId != companyId.Value)
+            throw new KeyNotFoundException($"Withdraw {withdrawNo} not found");
+        if (withdraw.Status != WithdrawStatus.Withdrawn)
+            throw new InvalidOperationException("Only withdrawn records can be cancelled");
+
+        var details = _detailRepo.GetByWithdrawNo(withdrawNo);
+        if (details.Count == 0)
+            throw new InvalidOperationException("No items to return");
+
+        _ctx.BeginTransaction();
+        try
+        {
+            foreach (var detail in details)
+            {
+                var product = _productRepo.GetById(detail.ProductId);
+                if (product == null)
+                    throw new KeyNotFoundException($"Product {detail.ProductId} not found");
+
+                // Return the withdrawn quantity back to stock
+                product.Quantity += detail.Quantity;
+                _productRepo.Update(product);
+
+                // Log the return as a stock-in movement
+                _movementRepo.Insert(new StockMovement
+                {
+                    ProductId = detail.ProductId,
+                    Type = MovementType.In,
+                    Quantity = detail.Quantity,
+                    Note = $"ยกเลิกเบิก {withdrawNo}",
+                    CompanyId = withdraw.CompanyId
+                });
+            }
+
+            withdraw.Status = WithdrawStatus.Cancelled;
             _ctx.Withdraws.Update(withdraw);
 
             _ctx.CommitTransaction();

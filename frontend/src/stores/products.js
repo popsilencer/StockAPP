@@ -91,5 +91,17 @@ export const useProductsStore = defineStore('products', () => {
     catch { /* silent */ }
   }
 
-  return { products, lowStock, movements, loading, fetchAll, fetchLowStock, createProduct, updateProduct, deleteProduct, adjustStock, fetchMovements }
+  async function deleteMovement(id) {
+    try {
+      await productsApi.deleteMovement(id)
+      movements.value = movements.value.filter(m => m.id !== id)
+      toast.add({ severity: 'success', summary: 'Movement deleted', life: 3000 })
+    } catch (err) {
+      const msg = err.response?.data?.message || 'Failed to delete movement'
+      toast.add({ severity: 'error', summary: 'Error', detail: msg, life: 3000 })
+      throw err
+    }
+  }
+
+  return { products, lowStock, movements, loading, fetchAll, fetchLowStock, createProduct, updateProduct, deleteProduct, adjustStock, fetchMovements, deleteMovement }
 })

@@ -24,5 +24,8 @@ export const productsApi = {
   },
   getMovements(productId) {
     return http.get('/movements', { params: { productId } })
+  },
+  deleteMovement(id) {
+    return http.delete(`/movements/${id}`)
   }
 }

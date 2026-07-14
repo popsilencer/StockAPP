@@ -1,6 +1,6 @@
 namespace StockApp.Models.Entities;
 
-public enum WithdrawStatus { Draft = 0, Saved = 1, Withdrawn = 2 }
+public enum WithdrawStatus { Draft = 0, Saved = 1, Withdrawn = 2, Cancelled = 3 }
 
 public class Withdraw
 {

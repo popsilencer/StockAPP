@@ -132,7 +132,7 @@
           <Column field="status" header="Status" style="width: 120px">
             <template #body="slotProps">
               <Tag :value="slotProps.data.status"
-                   :severity="slotProps.data.status === 'Withdrawn' ? 'success' : 'info'" />
+                   :severity="statusSeverity(slotProps.data.status)" />
             </template>
           </Column>
         </DataTable>
@@ -183,8 +183,12 @@ const statusFilter = ref(null)
 const statusOptions = [
   { label: 'Draft', value: 'Draft' },
   { label: 'Saved', value: 'Saved' },
-  { label: 'Withdrawn', value: 'Withdrawn' }
+  { label: 'Withdrawn', value: 'Withdrawn' },
+  { label: 'Cancelled', value: 'Cancelled' }
 ]
+
+const statusSeverityMap = { Draft: 'info', Saved: 'info', Withdrawn: 'success', Cancelled: 'warn' }
+function statusSeverity(s) { return statusSeverityMap[s] ?? 'secondary' }
 
 function startOfDay(d) { const x = new Date(d); x.setHours(0, 0, 0, 0); return x }
 function endOfDay(d) { const x = new Date(d); x.setHours(23, 59, 59, 999); return x }
