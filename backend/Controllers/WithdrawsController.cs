@@ -81,4 +81,12 @@ public class WithdrawsController : ControllerBase
         catch (KeyNotFoundException ex) { return NotFound(new { message = ex.Message }); }
         catch (InvalidOperationException ex) { return BadRequest(new { message = ex.Message }); }
     }
+
+    [HttpPost("{withdrawNo}/cancel")]
+    public IActionResult Cancel(string withdrawNo)
+    {
+        try { return Ok(_stockService.CancelWithdraw(withdrawNo, Cid)); }
+        catch (KeyNotFoundException ex) { return NotFound(new { message = ex.Message }); }
+        catch (InvalidOperationException ex) { return BadRequest(new { message = ex.Message }); }
+    }
 }

@@ -23,4 +23,8 @@ public class MovementRepository
     }
 
     public void Insert(StockMovement movement) => _ctx.Movements.Insert(movement);
+
+    public StockMovement? GetById(int id) => _ctx.Movements.FindById(id);
+
+    public bool Delete(int id) => _ctx.Movements.Delete(id);
 }

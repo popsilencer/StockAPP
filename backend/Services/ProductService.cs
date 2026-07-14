@@ -72,6 +72,8 @@ public class ProductService
         if (companyId.HasValue && _repo.SkuExists(dto.Sku, companyId, excludeId: id))
             throw new InvalidOperationException($"SKU '{dto.Sku}' already exists in this company");
 
+        var oldQty = existing.Quantity;
+
         existing.Sku = dto.Sku;
         existing.Name = dto.Name;
         existing.Description = dto.Description;
@@ -81,6 +83,21 @@ public class ProductService
         existing.Price = dto.Price;
         existing.ReorderLevel = dto.ReorderLevel;
         _repo.Update(existing);
+
+        // Log stock adjustment movement when quantity changes via edit
+        var delta = dto.Quantity - oldQty;
+        if (delta != 0)
+        {
+            _movementRepo.Insert(new StockMovement
+            {
+                ProductId = existing.Id,
+                Type = delta > 0 ? MovementType.In : MovementType.Out,
+                Quantity = Math.Abs(delta),
+                Note = "ปรับปรุงสต๊อก",
+                CompanyId = existing.CompanyId
+            });
+        }
+
         return existing;
     }
 

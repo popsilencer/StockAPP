@@ -24,5 +24,8 @@ export const withdrawsApi = {
   },
   create(data) {
     return http.post('/withdraws', data)
+  },
+  cancel(withdrawNo) {
+    return http.post(`/withdraws/${withdrawNo}/cancel`)
   }
 }

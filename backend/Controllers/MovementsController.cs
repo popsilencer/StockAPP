@@ -36,4 +36,20 @@ public class MovementsController : ControllerBase
         catch (KeyNotFoundException) { return NotFound(); }
         catch (InvalidOperationException ex) { return BadRequest(new { message = ex.Message }); }
     }
+
+    [HttpDelete("{id:int}")]
+    public IActionResult Delete(int id)
+    {
+        var username = User.FindFirst(System.Security.Claims.ClaimTypes.Name)?.Value;
+        if (username != "admin")
+            return Forbid();
+
+        try
+        {
+            _stockService.DeleteMovement(id, Cid);
+            return NoContent();
+        }
+        catch (KeyNotFoundException) { return NotFound(); }
+        catch (InvalidOperationException ex) { return BadRequest(new { message = ex.Message }); }
+    }
 }
